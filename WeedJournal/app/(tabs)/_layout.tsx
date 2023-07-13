@@ -11,12 +11,12 @@ import Colors from '../../constants/Colors';
 // Update TabBarButton types 
 interface TabBarButtonProps {
   focused: boolean;
-  name: string; 
+  name: any; 
 }
 
 function TabBarIcon(props: {
-  focused: any;
   name: any;
+  color: string;
 }) {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
@@ -80,9 +80,8 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="plus" color={color} />,
           tabBarButton: (props) => (
             <TabBarButton 
-              {...props}  
-              name="plus" 
-            />
+            focused={props.focused} 
+            name="plus"            />
           ),
           headerShown: false,
         }}
