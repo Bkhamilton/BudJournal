@@ -15,8 +15,8 @@ interface TabBarButtonProps {
 }
 
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
+  focused: any;
+  name: any;
 }) {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
@@ -61,20 +61,7 @@ export default function TabLayout() {
           title: 'Tab One',
           href: './',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          headerShown: false,
         }}
       />
       <Tabs.Screen
@@ -83,6 +70,7 @@ export default function TabLayout() {
           title: 'Tab Two',
           href: './two',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerShown: false,
         }}
       />
       <Tabs.Screen
@@ -95,7 +83,8 @@ export default function TabLayout() {
               {...props}  
               name="plus" 
             />
-          )
+          ),
+          headerShown: false,
         }}
       />
       <Tabs.Screen
@@ -104,6 +93,7 @@ export default function TabLayout() {
           title: 'History',
           href: './history',
           tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
+          headerShown: false,
         }}
       />
       <Tabs.Screen
@@ -112,6 +102,7 @@ export default function TabLayout() {
           title: 'Profile',
           href: './profile',
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
+          headerShown: false,
         }}
       />
     </Tabs>
