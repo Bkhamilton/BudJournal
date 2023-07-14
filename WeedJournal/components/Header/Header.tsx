@@ -29,7 +29,9 @@ export default function Header({ title }: { title: string }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#388E3C',
+    backgroundColor: 'transparent',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
   },
   title: {
     fontSize: 20,

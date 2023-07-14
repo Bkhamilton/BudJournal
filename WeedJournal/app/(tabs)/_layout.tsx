@@ -33,12 +33,12 @@ function TabBarButton({ focused, name }: TabBarButtonProps) {
         borderRadius: 30,
         justifyContent: 'center',
         alignItems: 'center',
-        bottom: 20,
+        bottom: 16,
         elevation: 5,  
       }}
     >
       <Image
-        style={{ width: 40, height: 44 }}
+        style={{ width: 36, height: 40 }}
         source={logo}
       />
       </TouchableOpacity>

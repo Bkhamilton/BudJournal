@@ -2,17 +2,16 @@ import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
 import Header from '../../components/Header/Header';
+import FirstBox from '../../components/Home/FirstBox/FirstBox';
 import { Text, View, SafeAreaView, ScrollView } from '../../components/Themed';
 
 export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
+      <Header title='Weed Journal'/>
       <ScrollView style={styles.scrollContainer}>
-        <Header title='Weed Journal'/>
         <View style={styles.content}>
-          <Text style={styles.title}>Recently Tried</Text>
-          <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-          <EditScreenInfo path="app/(tabs)/index.tsx" />
+          <FirstBox/>
         </View>
         <View style={styles.content}>
           <Text style={styles.title}>Favorites</Text>
