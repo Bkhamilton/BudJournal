@@ -15,7 +15,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Header title='Weed Journal'/>
-      <ScrollView style={styles.scrollContainer}>
+      <ScrollView style={styles.scrollContainer} lightColor="#388E3C" darkColor="#1B5E20">
         <View style={styles.content}>
           <FirstBox/>
         </View>
@@ -31,6 +31,11 @@ export default function HomeScreen() {
         </View>
         <View style={styles.content}>
           <Text style={styles.title}>Smoke Tracker</Text>
+          <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+          <EditScreenInfo path="app/(tabs)/index.tsx" />
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.title}>Recent Journal Entries</Text>
           <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
           <EditScreenInfo path="app/(tabs)/index.tsx" />
         </View>

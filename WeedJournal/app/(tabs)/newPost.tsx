@@ -1,23 +1,26 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, useColorScheme } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import { Text, View, SafeAreaView, ScrollView } from '../../components/Themed';
+import Header from '../../components/Header/Header';
 
 export default function NewPostScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>New Post</Text>
+    <SafeAreaView style={styles.container}>
+      <Header title='New Post'/>
+      <ScrollView>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/(tabs)/newPost.tsx" />
-    </View>
+      </ScrollView> 
+         
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#388E3C',
   },
   title: {
     fontSize: 20,
