@@ -13,7 +13,7 @@ export default {
   },
   dark: {
     text: '#fff',
-    background: '#000',
+    background: '#121212',
     borderColor: '#fff',
     colorBackground: '#0C4A11',
     tint: tintColorDark,
