@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
 },
   newPostButton: {
     borderWidth: 2,
-    borderColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
     width: '90%',
