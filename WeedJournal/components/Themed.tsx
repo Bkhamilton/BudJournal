@@ -3,7 +3,8 @@
  * https://docs.expo.io/guides/color-schemes/
  */
 
-import { Text as DefaultText, useColorScheme, View as DefaultView, SafeAreaView as DefaultSafeAreaView, ScrollView as DefaultScrollView } from 'react-native';
+import { Text as DefaultText, useColorScheme, View as DefaultView, TouchableOpacity as DefaultTouchableOpacity,
+   SafeAreaView as DefaultSafeAreaView, ScrollView as DefaultScrollView } from 'react-native';
 
 import Colors from '../constants/Colors';
 
@@ -28,6 +29,7 @@ type ThemeProps = {
 
 export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
+export type TouchableOpacityProps = ThemeProps & DefaultTouchableOpacity['props'];
 export type SafeAreaViewProps = ThemeProps & DefaultSafeAreaView['props'];
 export type ScrollViewProps = ThemeProps & DefaultScrollView['props'];
 
@@ -43,6 +45,13 @@ export function View(props: ViewProps) {
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
 
   return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+}
+
+export function TouchableOpacity(props: TouchableOpacityProps) {
+  const { style, lightColor, darkColor, ...otherProps } = props;
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'tabIconDefault');
+
+  return <DefaultTouchableOpacity style={[{ backgroundColor }, style]} {...otherProps} />;
 }
 
 export function SafeAreaView(props: SafeAreaViewProps) {
