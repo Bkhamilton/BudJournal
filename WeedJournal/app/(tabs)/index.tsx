@@ -42,10 +42,12 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#388E3C',
   },
   scrollContainer: {
-    paddingHorizontal: 8,
+    paddingHorizontal: 0,
     paddingVertical: 20,
+    backgroundColor: '#388E3C',
   },
   title: {
     fontSize: 20,
@@ -62,10 +64,10 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: 'center',
-    borderWidth: 2,
-    borderColor: 'green',
+    borderWidth: 0,
     borderRadius: 16,
     marginVertical: 4,
     paddingVertical: 10,
+    backgroundColor: 'white',
   }
 });

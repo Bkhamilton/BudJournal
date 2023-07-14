@@ -17,7 +17,7 @@ export default function Header({ title }: { title: string }) {
     }, [fontsLoaded]); 
 
     return (
-        <View>
+        <View style={styles.container}>
             {fontLoaded ? (
                 <Text style={[styles.title, { fontFamily: 'SpaceMono' }]}>{title}</Text> 
             ) : (
@@ -29,7 +29,7 @@ export default function Header({ title }: { title: string }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    backgroundColor: '#388E3C',
   },
   title: {
     fontSize: 20,
