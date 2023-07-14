@@ -1,6 +1,7 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
-import { Pressable, TouchableOpacity, useColorScheme } from 'react-native';
+import { Image, Pressable, TouchableOpacity, useColorScheme } from 'react-native';
+import logo from '../../assets/images/weedLeaf.png';
 
 import Colors from '../../constants/Colors';
 
@@ -36,11 +37,10 @@ function TabBarButton({ focused, name }: TabBarButtonProps) {
         elevation: 5,  
       }}
     >
-      <FontAwesome 
-        name={name} 
-        size={30} 
-        color="white" 
-        />
+      <Image
+        style={{ width: 40, height: 44 }}
+        source={logo}
+      />
       </TouchableOpacity>
     </Link>
 
@@ -58,7 +58,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
+          title: 'Home',
           href: './',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerShown: false,
