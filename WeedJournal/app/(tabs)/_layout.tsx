@@ -12,7 +12,6 @@ import Colors from '../../constants/Colors';
 
 // Update TabBarButton types 
 interface TabBarButtonProps {
-  focused: boolean;
   name: any; 
 }
 
@@ -23,7 +22,7 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
-function TabBarButton({ focused, name }: TabBarButtonProps) {
+function TabBarButton({ name }: TabBarButtonProps) {
   return (
     <Link href='./newPost' asChild>
       <TouchableOpacity
@@ -54,6 +53,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarItemStyle: {borderTopWidth: 1, borderColor: Colors[colorScheme ?? 'light'].colorBackground}
       }}>
       <Tabs.Screen
         name="index"
@@ -80,7 +80,6 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="plus" color={color} />,
           tabBarButton: (props) => (
             <TabBarButton 
-            focused={props.focused} 
             name="plus"            />
           ),
           headerShown: false,

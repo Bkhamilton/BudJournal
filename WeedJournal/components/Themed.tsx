@@ -50,20 +50,21 @@ export function View(props: ViewProps) {
 export function TouchableOpacity(props: TouchableOpacityProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'tabIconDefault');
+  const borderColor = useThemeColor({ light: lightColor, dark: darkColor }, 'borderColor')
 
   return <DefaultTouchableOpacity style={[{ backgroundColor }, style]} {...otherProps} />;
 }
 
 export function SafeAreaView(props: SafeAreaViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'colorBackground');
 
   return <DefaultSafeAreaView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
 
 export function ScrollView(props: ScrollViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'colorBackground');
 
   return <DefaultScrollView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
