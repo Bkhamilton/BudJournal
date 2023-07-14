@@ -7,7 +7,7 @@ import Header from '../../components/Header/Header';
 export default function NewPostScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <Header title='New Post'/>
+      <Header title='New Post' font='SpaceGrotesk'/>
       <ScrollView>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/(tabs)/newPost.tsx" />
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+
   },
   separator: {
     marginVertical: 30,

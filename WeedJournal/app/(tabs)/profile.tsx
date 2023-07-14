@@ -7,7 +7,7 @@ import Header from '../../components/Header/Header';
 export default function ProfileScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <Header title='Profile'/>
+      <Header title='Profile' font='Spliffs'/>
       <ScrollView>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/(tabs)/profile.tsx" />

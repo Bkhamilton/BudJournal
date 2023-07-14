@@ -3,9 +3,11 @@ import { StyleSheet } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import { useFonts } from 'expo-font';
 
-export default function Header({ title }: { title: string }) {
+export default function Header({ title, font }: { title: string, font: string }) {
     const [fontsLoaded] = useFonts({
-        'SpaceMono': require('../../assets/fonts/SpaceMono-Regular.ttf'), 
+        'SpaceMono': require('../../assets/fonts/SpaceMono-Regular.ttf'),
+        'Spliffs': require('../../assets/fonts/Spliffs-YE3o.ttf'),
+        'SpaceGrotesk': require('../../assets/fonts/SpaceGrotesk.ttf'),
     });
     
     const [fontLoaded, setFontLoaded] = useState(false);
@@ -19,7 +21,7 @@ export default function Header({ title }: { title: string }) {
     return (
         <View style={styles.container}>
             {fontLoaded ? (
-                <Text style={[styles.title, { fontFamily: 'SpaceMono' }]}>{title}</Text> 
+                <Text style={[styles.title, { fontFamily: font }]}>{title}</Text> 
             ) : (
                 <Text style={styles.title}>{title}</Text>
             )}
@@ -34,7 +36,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   title: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
   },
 });
