@@ -1,15 +1,18 @@
 import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import { Text, View, ScrollView, SafeAreaView } from '../../components/Themed';
+import Header from '../../components/Header/Header';
 
 export default function ProfileScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Profile</Text>
+    <SafeAreaView style={styles.container}>
+      <Header title='Profile'/>
+      <ScrollView>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/(tabs)/profile.tsx" />
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 

@@ -20,7 +20,7 @@ export default function NewPostScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#388E3C',
+    alignItems: 'center'
   },
   title: {
     fontSize: 20,
