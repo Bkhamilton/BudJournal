@@ -14,11 +14,12 @@ import TextBox from '../../components/TextBox/TextBox';
 
 
 interface UserProps {
-  First: string,
-  Last: string,
-  Email: string,
-  Username: string,
-  BIO: string,
+  fName: string,
+  lName: string,
+  email: string,
+  username: string,
+  bear: string,
+  bio: string,
 }
 
 export default function ProfileSettings({visible, toggle, user}: {visible: boolean, toggle: ()=>void, user: UserProps}) {
@@ -56,15 +57,15 @@ export default function ProfileSettings({visible, toggle, user}: {visible: boole
               </View>
               <View style={[{backgroundColor: backgroundColor}, styles.rightBox]}>
                 <Text>Username</Text>
-                <TextBox placeholder='Enter Username' value={user.Username}/>
+                <TextBox placeholder='Enter Username' value={user.username}/>
                 <Text>First Name</Text>
-                <TextBox placeholder='Enter First Name' value={user.First}/>
+                <TextBox placeholder='Enter First Name' value={user.fName}/>
                 <Text>Last Name</Text>
-                <TextBox placeholder='Enter Last Name' value={user.Last}/>
+                <TextBox placeholder='Enter Last Name' value={user.lName}/>
               </View>
             </View>
             <View style={[{backgroundColor: backgroundColor}, styles.bioBox]}>
-                <BioBox placeholder='Bio here' value={user.BIO}></BioBox>
+                <BioBox placeholder='Bio here' value={user.bio}></BioBox>
               </View>
             </ScrollView>
         </View>

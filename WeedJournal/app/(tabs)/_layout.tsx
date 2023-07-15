@@ -24,6 +24,7 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
+
 function TabBarButton({ name, active, colorScheme }: TabBarButtonProps) {
   return (
     <Link href='./newPost' asChild>
