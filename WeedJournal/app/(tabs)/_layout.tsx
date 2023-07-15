@@ -13,6 +13,8 @@ import Colors from '../../constants/Colors';
 // Update TabBarButton types 
 interface TabBarButtonProps {
   name: any; 
+  active: boolean;
+  colorScheme: any;
 }
 
 function TabBarIcon(props: {
@@ -22,7 +24,7 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
-function TabBarButton({ name }: TabBarButtonProps) {
+function TabBarButton({ name, active, colorScheme }: TabBarButtonProps) {
   return (
     <Link href='./newPost' asChild>
       <TouchableOpacity
@@ -34,6 +36,7 @@ function TabBarButton({ name }: TabBarButtonProps) {
         alignItems: 'center',
         bottom: 16,
         elevation: 5,  
+        backgroundColor: active ? Colors[colorScheme ?? 'light'].tabButtonActive : Colors[colorScheme ?? 'light'].tabButtonInactive,
       }}
     >
       <Image
@@ -58,9 +61,10 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'WeedJournal',
           href: './',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarLabel: 'Home',
           headerShown: false,
         }}
       />
@@ -80,7 +84,10 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="plus" color={color} />,
           tabBarButton: (props) => (
             <TabBarButton 
-            name="plus"            />
+              name="plus"
+              active={props.accessibilityState.selected}
+              colorScheme={colorScheme}            
+            />
           ),
           headerShown: false,
         }}
