@@ -14,7 +14,7 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title='Weed Journal' font='SpaceGrotesk'/>
+      <Header title='Weed Journal' font='PsychoFun'/>
       <ScrollView style={styles.scrollContainer}>
         <View style={styles.content}>
           <FirstBox/>
