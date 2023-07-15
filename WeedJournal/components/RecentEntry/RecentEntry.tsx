@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   pfp: {
-    height: 44, 
-    width: 44, 
+    height: 48, 
+    width: 48, 
     borderWidth: 1, 
     borderRadius: '50%',
   },

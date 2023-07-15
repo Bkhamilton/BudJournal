@@ -18,23 +18,24 @@ export default function FriendsScreen() {
       const strain = strains[Math.floor(Math.random() * strains.length)];
       const name = names[Math.floor(Math.random() * names.length)];
   
-      // Generate random rating
-      const rating = Math.random() * 10; 
-      const roundedRating = rating.toFixed(1);
+    // Rating between 2.0-10.0
+    let rating = Math.random() * 80 + 20; 
+    rating = rating / 10;
+    const roundedRating = rating.toFixed(1);
   
-      const newEntry = {
+    const newEntry = {
         strain,
         name,
         rating: roundedRating // add rating 
-      };
+    };
   
-      entries.push(newEntry);
+    entries.push(newEntry);
   
     }
   
   }
 
-  addRandomStrains(20);
+  addRandomStrains(25);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -76,6 +77,6 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    gap: 16,
+    gap: 20,
   },
 });
