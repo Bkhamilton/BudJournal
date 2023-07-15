@@ -22,6 +22,7 @@ interface UserProps {
 }
 
 export default function ProfileSettings({visible, toggle, user}: {visible: boolean, toggle: ()=>void, user: UserProps}) {
+  
   const colorScheme = useColorScheme();
   const buttonColor = (colorScheme == 'light' ? "white" : "white")
   const innerViewLight = Colors[colorScheme ?? 'light'].modalColorBackground;

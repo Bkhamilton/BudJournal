@@ -2,13 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import { Modal, Text, View } from '../../components/Themed';
 
 export default function ViewAllFriends({visible, toggle}: {visible: boolean, toggle: ()=>void}) {
-  return (
-    <View style={styles.container}>
+  
+  
+    return (
+    <Modal visible={visible} animationType='slide' style={styles.container}>
       
-    </View>
+    </Modal>
   );
 }
 

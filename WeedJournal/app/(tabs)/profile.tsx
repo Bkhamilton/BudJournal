@@ -9,13 +9,28 @@ import { Link } from 'expo-router';
 import { PreventRemoveContext } from '@react-navigation/native';
 import { transform } from '@babel/core';
 import Colors from '../../constants/Colors';
+import FriendWheel from '../../components/FriendWheel/FriendWheel';
+import ViewAllFriends from '../modals/VewAllFriends';
+import ViewFriend from '../modals/ViewFriend';
 
 export default function ProfileScreen() {
   
-  const [isOn, setIsOn]= useState(false);
+  const [settingsModal, setSettingsModal]= useState(false);
 
-  const toggleState = () => {
-    setIsOn((prevState) => !prevState) 
+  const toggleSettingsModal = () => {
+    setSettingsModal((prevState) => !prevState) 
+  }
+
+  const [friendModal, setFriendModal]= useState(false);
+
+  const toggleFriendModal = () => {
+    setFriendModal((prevState) => !prevState) 
+  }
+
+  const [allFriendsModal, setAllFriendsModal]= useState(false);
+
+  const toggleAllFriendsModal = () => {
+    setAllFriendsModal((prevState) => !prevState) 
   }
 
   const updateState = (key, updatedValue) => {
@@ -35,7 +50,7 @@ export default function ProfileScreen() {
     'BIO': "1, 2, 3, and to the 4, ken doggy dog and benjamin is at the door. ready to make an entrance so back on up, cause you know we bout to code shit up."
   });
 
-  
+
   const colorScheme = useColorScheme();
   const BackgroundColor = (colorScheme == 'light' ? Colors[colorScheme ?? 'light'].modalBackground : Colors[colorScheme ?? 'dark'].modalBackground);
   const buttonColor = (colorScheme == 'light' ? 'black' : 'white')
@@ -43,12 +58,16 @@ export default function ProfileScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Header title='Profile' font='PsychoFun'>
-        <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggleState}>
+        <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggleSettingsModal}>
           <FontAwesome name='gears' color='black' size={24}></FontAwesome>
         </TouchableOpacity>
       </Header>
-      <ProfileSettings visible={isOn} toggle={toggleState} user={userProperties} ></ProfileSettings>
+      <ProfileSettings visible={false} toggle={toggleSettingsModal} user={userProperties} ></ProfileSettings>
       <ScrollView>
+
+        <ViewAllFriends visible={allFriendsModal} toggle={toggleAllFriendsModal} />
+        <ViewFriend visible={friendModal} toggle={toggleFriendModal} />
+
         <View>
 
             <View style={[{backgroundColor: BackgroundColor}, styles.profileHead]}>
@@ -68,34 +87,7 @@ export default function ProfileScreen() {
             <View style={[{backgroundColor: BackgroundColor},styles.biographySection]}>
               <Text style={{textAlign: 'center'}}> {userProperties.BIO} </Text>
             </View>
-
-            <View style={[{backgroundColor: BackgroundColor}]}>
-              <View style={styles.friendsContainer}>
-                <View style={styles.friendsInnerContainer}>
-                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <View style={[styles.friendsButton, {borderColor: buttonColor}]}></View>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <View style={[styles.friendsButton, {borderColor: buttonColor}]}></View>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <View style={[styles.friendsButton, {borderColor: buttonColor}]}></View>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <View style={[styles.friendsButton, {borderColor: buttonColor}]}></View>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <View style={[styles.friendsButton, {borderColor: buttonColor}]}></View>
-                  </TouchableOpacity>
-                </View>
-                <View style={{backgroundColor: 'transparent'}}>
-                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <FontAwesome name='caret-right' size={36} color={buttonColor} style={styles.friendsLinkButton}/>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-
+            <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={toggleFriendModal}></FriendWheel>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -157,36 +149,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 32,
   },
-  friendsContainer: {
-    borderWidth: 3,
-    borderColor: '#0C4A11',
-    height: 60,
-    width: '90%',
-    marginHorizontal: '5%',
-    borderRadius: 16,
-    marginVertical: '5%',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center'
-  },
-  friendsInnerContainer: {
-    height: 60,
-    width: '90%',
-    marginHorizontal: '5%',
-    borderRadius: 16,
-    marginVertical: '5%',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center'
-  },
-  friendsButton: { 
-    width: 36, 
-    height: 36, 
-    borderWidth: 1, 
-    borderColor: 'white',
-  },
-  friendsLinkButton: {
-    width: 36, 
-    height: 36,
-  }
 });
