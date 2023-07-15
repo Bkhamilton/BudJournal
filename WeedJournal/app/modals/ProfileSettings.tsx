@@ -9,6 +9,7 @@ import Header from '../../components/Header/Header';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 import ProfileScreen from '../(tabs)/profile';
 import CustomTextInput from '../../components/TextBox/TextBox'
+import TextBox from '../../components/TextBox/TextBox';
 
 
 
@@ -17,14 +18,19 @@ import CustomTextInput from '../../components/TextBox/TextBox'
 export default function ProfileSettings({visible, toggle}: {visible: boolean, toggle: ()=>void}) {
   const colorScheme = useColorScheme();
   const buttonColor = (colorScheme == 'light' ? "white" : "white")
-  const lightColorBack = Colors[colorScheme ?? 'light'].colorBackground;
-  const darkColorBack = Colors[colorScheme ?? 'dark'].colorBackground;
-  const backgroundColor = (colorScheme == 'light' ? darkColorBack : lightColorBack);
+  const innerViewLight = Colors[colorScheme ?? 'light'].modalColorBackground;
+  const innerViewDark = Colors[colorScheme ?? 'dark'].modalColorBackground;
 
+  const outerViewDark = Colors[colorScheme ?? 'light'].modalBackground;
+  const outerViewLight = Colors[colorScheme ?? 'dark'].modalBackground;
+
+
+  const backgroundColor = (colorScheme == 'light' ? innerViewDark : innerViewLight);
+  const outerBackgroundColor = (colorScheme == 'light' ? outerViewDark : outerViewLight)
     return (
       <Modal visible={visible} animationType='fade' presentationStyle='overFullScreen' transparent={true} >
       <SafeAreaView style={styles.modalContainer}>
-        <View style={styles.modalPopup}>
+        <View style={[{backgroundColor: outerBackgroundColor}, styles.modalPopup]}>
           <Header title='Profile Settings' font='PsychoFun'>
             <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggle}>
               <FontAwesome name='close' color={buttonColor} size={24}></FontAwesome>
@@ -40,11 +46,11 @@ export default function ProfileSettings({visible, toggle}: {visible: boolean, to
               </View>
               <View style={[{backgroundColor: backgroundColor}, styles.rightBox]}>
                 <Text>Username</Text>
-                <CustomTextInput placeholder='Enter Username'/>
+                <TextBox placeholder='Enter Username'/>
                 <Text>First Name</Text>
-                <CustomTextInput placeholder='Enter First Name'/>
+                <TextBox placeholder='Enter First Name'/>
                 <Text>Last Name</Text>
-                <CustomTextInput placeholder='Enter Last Name'/>
+                <TextBox placeholder='Enter Last Name'/>
               </View>
             </View>
             </ScrollView>

@@ -7,18 +7,20 @@ import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Modal } from '.
 import Header from '../../components/Header/Header';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function CustomTextInput ({placeholder}: {placeholder: string}) {
+export default function TextBox ({placeholder}: {placeholder: string}) {
     const [text, onChangeText] = React.useState(placeholder);
     const [number, onChangeNumber] = React.useState('');
     
     const colorScheme = useColorScheme();
     const boxColor = (colorScheme == 'light' ? "black" : "white");
-
+    const innerViewLight = Colors[colorScheme ?? 'light'].modalColorBackground;
+    const innerViewDark = Colors[colorScheme ?? 'dark'].modalColorBackground;
+    const backgroundColor = (colorScheme == 'light' ? innerViewDark : innerViewLight); 
 
     return (
-      <SafeAreaView>
+      <View style={{backgroundColor: 'transparent'}}>
         <TextInput
-          style={[{color: boxColor, borderColor: boxColor}, styles.inputBox]}
+          style={[{backgroundColor: 'transparent',color: boxColor, borderColor: boxColor}, styles.inputBox]}
           onChangeText={onChangeText}
           value={text}
           placeholder={placeholder}
@@ -29,7 +31,7 @@ export default function CustomTextInput ({placeholder}: {placeholder: string}) {
           value={number}
           placeholder={placeholder}
         /> */}
-      </SafeAreaView>
+      </View>
     );
   };
 
