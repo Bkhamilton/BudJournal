@@ -53,6 +53,6 @@ const styles = StyleSheet.create({
   settingsLink: {
     position: 'absolute',
     right: '8%',
-    bottom: '20%',
+    bottom: '25%',
   }
 });
