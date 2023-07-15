@@ -34,11 +34,11 @@ export default function ProfileScreen() {
     'Username': 'Vmaxman',
     'BIO': "1, 2, 3, and to the 4, ken doggy dog and benjamin is at the door. ready to make an entrance so back on up, cause you know we bout to code shit up."
   });
-  const colorScheme = useColorScheme();
-  const outerViewDark = Colors[colorScheme ?? 'light'].modalBackground;
-  const outerViewLight = Colors[colorScheme ?? 'dark'].modalBackground;
-  const BackgroundColor = (colorScheme == 'light' ? outerViewDark : outerViewLight);
 
+  
+  const colorScheme = useColorScheme();
+  const BackgroundColor = (colorScheme == 'light' ? Colors[colorScheme ?? 'light'].modalBackground : Colors[colorScheme ?? 'dark'].modalBackground);
+  const buttonColor = (colorScheme == 'light' ? 'black' : 'white')
 
   return (
     <SafeAreaView style={styles.container}>
@@ -69,28 +69,28 @@ export default function ProfileScreen() {
               <Text style={{textAlign: 'center'}}> {userProperties.BIO} </Text>
             </View>
 
-            <View style={[{backgroundColor: BackgroundColor},styles.friendsWheelContainer]}>
+            <View style={[{backgroundColor: BackgroundColor}]}>
               <View style={styles.friendsContainer}>
                 <View style={styles.friendsInnerContainer}>
                   <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <View style={styles.friendsButton}></View>
+                    <View style={[styles.friendsButton, {borderColor: buttonColor}]}></View>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <View style={styles.friendsButton}></View>
+                    <View style={[styles.friendsButton, {borderColor: buttonColor}]}></View>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <View style={styles.friendsButton}></View>
+                    <View style={[styles.friendsButton, {borderColor: buttonColor}]}></View>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <View style={styles.friendsButton}></View>
+                    <View style={[styles.friendsButton, {borderColor: buttonColor}]}></View>
                   </TouchableOpacity>
                   <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <View style={styles.friendsButton}></View>
+                    <View style={[styles.friendsButton, {borderColor: buttonColor}]}></View>
                   </TouchableOpacity>
                 </View>
                 <View style={{backgroundColor: 'transparent'}}>
                   <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
-                    <FontAwesome name='caret-right' size={36} color='white' style={styles.friendsLinkButton}/>
+                    <FontAwesome name='caret-right' size={36} color={buttonColor} style={styles.friendsLinkButton}/>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -158,7 +158,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
   },
   friendsContainer: {
-    borderWidth: 1,
+    borderWidth: 3,
+    borderColor: '#0C4A11',
     height: 60,
     width: '90%',
     marginHorizontal: '5%',
