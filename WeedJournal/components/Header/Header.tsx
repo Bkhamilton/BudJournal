@@ -7,7 +7,8 @@ export default function Header({ title, font }: { title: string, font: string })
     const [fontsLoaded] = useFonts({
         'SpaceMono': require('../../assets/fonts/SpaceMono-Regular.ttf'),
         'Spliffs': require('../../assets/fonts/Spliffs-YE3o.ttf'),
-        'SpaceGrotesk': require('../../assets/fonts/SpaceGrotesk.ttf'),
+        'SpaceGrotesk': require('../../assets/fonts/SpaceGrotesk/SpaceGrotesk-Regular.ttf'),
+        'SpaceGrotesk_Bold': require('../../assets/fonts/SpaceGrotesk/SpaceGrotesk-Bold.ttf'),
     });
     
     const [fontLoaded, setFontLoaded] = useState(false);

@@ -21,8 +21,9 @@ export default function ProfileSettings({visible, toggle}: {visible: boolean, to
           <FontAwesome name='close' color={buttonColor} size={24}></FontAwesome>
         </TouchableOpacity>
         <ScrollView>
-        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-        <EditScreenInfo path="app/(tabs)/newPost.tsx" />
+          <TouchableOpacity>
+            <FontAwesome name='image-landscape'></FontAwesome>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     </SafeAreaView>

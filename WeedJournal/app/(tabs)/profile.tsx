@@ -19,7 +19,7 @@ export default function ProfileScreen() {
   
   return (
     <SafeAreaView style={styles.container}>
-      <Header title='Profile' font='Spliffs'/>
+      <Header title='Profile' font='SpaceGrotesk'/>
       <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggleState}>
         <FontAwesome name='gears' color='black' size={24}></FontAwesome>
       </TouchableOpacity>
