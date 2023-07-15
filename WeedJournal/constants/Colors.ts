@@ -25,7 +25,7 @@ export default {
     modalBackground: '#0C4A11',
     tabIconDefault: '#ccc',
     tabButtonActive: '#ccc',
-    tabButtonInactive: '#0C4A11',
+    tabButtonInactive: '#08320B',
     tabIconSelected: tintColorDark,
   },
 };

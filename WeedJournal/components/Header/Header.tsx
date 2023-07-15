@@ -28,7 +28,7 @@ export default function Header({ title, font, children }: HeaderProps) {
     return (
         <View style={styles.container}>
             {fontLoaded ? (
-                <Text style={[styles.title, { fontFamily: font }]}>{title}</Text> 
+                <Text style={[styles.title,{height: 35 ,fontFamily: font }]}>{title}</Text> 
             ) : (
                 <Text style={styles.title}>{title}</Text>
             )}

@@ -4,7 +4,7 @@ import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View, ScrollView, SafeAreaView, TouchableOpacity } from '../../components/Themed';
 import Header from '../../components/Header/Header';
 import ProfileSettings from '../modals/ProfileSettings';
-import { FontAwesome, createMultiStyleIconSet } from '@expo/vector-icons';
+import { FontAwesome, createMultiStyleIconSet, Entypo } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import { PreventRemoveContext } from '@react-navigation/native';
 import { transform } from '@babel/core';
@@ -39,6 +39,7 @@ export default function ProfileScreen() {
   const outerViewLight = Colors[colorScheme ?? 'dark'].modalBackground;
   const BackgroundColor = (colorScheme == 'light' ? outerViewDark : outerViewLight);
 
+
   return (
     <SafeAreaView style={styles.container}>
       <Header title='Profile' font='PsychoFun'>
@@ -59,16 +60,41 @@ export default function ProfileScreen() {
 
             <View style={[{backgroundColor: BackgroundColor},styles.profileInfo]}>
               <View style={[{backgroundColor: BackgroundColor},styles.firstAndLastName]}>
-                  <Text>{userProperties.First} {userProperties.Last}</Text>
-                  <Text style={{paddingTop: 8}}>{userProperties.Email}</Text>
+                <Text>{userProperties.First} {userProperties.Last}</Text>
+                <Text style={{paddingTop: 8}}>{userProperties.Email}</Text>
               </View>
             </View>
             
             <View style={[{backgroundColor: BackgroundColor},styles.biographySection]}>
-                <Text style={{textAlign: 'center'}}> {userProperties.BIO} </Text>
+              <Text style={{textAlign: 'center'}}> {userProperties.BIO} </Text>
             </View>
 
-            
+            <View style={[{backgroundColor: BackgroundColor},styles.friendsWheelContainer]}>
+              <View style={styles.friendsContainer}>
+                <View style={styles.friendsInnerContainer}>
+                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
+                    <View style={styles.friendsButton}></View>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
+                    <View style={styles.friendsButton}></View>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
+                    <View style={styles.friendsButton}></View>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
+                    <View style={styles.friendsButton}></View>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
+                    <View style={styles.friendsButton}></View>
+                  </TouchableOpacity>
+                </View>
+                <View style={{backgroundColor: 'transparent'}}>
+                  <TouchableOpacity onPress={toggleState} style={{backgroundColor:'transparent'}}>
+                    <FontAwesome name='caret-right' size={36} color='white' style={styles.friendsLinkButton}/>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
 
         </View>
       </ScrollView>
@@ -130,5 +156,36 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     alignItems: 'center',
     paddingHorizontal: 32,
+  },
+  friendsContainer: {
+    borderWidth: 1,
+    height: 60,
+    width: '90%',
+    marginHorizontal: '5%',
+    borderRadius: 16,
+    marginVertical: '5%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
+  },
+  friendsInnerContainer: {
+    height: 60,
+    width: '90%',
+    marginHorizontal: '5%',
+    borderRadius: 16,
+    marginVertical: '5%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
+  },
+  friendsButton: { 
+    width: 36, 
+    height: 36, 
+    borderWidth: 1, 
+    borderColor: 'white',
+  },
+  friendsLinkButton: {
+    width: 36, 
+    height: 36,
   }
 });
