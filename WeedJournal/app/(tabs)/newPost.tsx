@@ -7,13 +7,14 @@ import Header from '../../components/Header/Header';
 export default function NewPostScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <Header title='New Post' font='PsychoFun'/>
+      <Header title='New Post' font='PsychoFun'>
+        
+      </Header>
       <ScrollView>
         <Text style={{ textAlign: 'center' }}></Text>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <EditScreenInfo path="app/(tabs)/newPost.tsx" />
       </ScrollView> 
-         
     </SafeAreaView>
   );
 }
