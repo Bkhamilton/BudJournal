@@ -9,7 +9,7 @@ import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function CustomTextInput ({placeholder}: {placeholder: string}) {
     const [text, onChangeText] = React.useState(placeholder);
-    // const [number, onChangeNumber] = React.useState('');
+    const [number, onChangeNumber] = React.useState('');
     
     const colorScheme = useColorScheme();
     const boxColor = (colorScheme == 'light' ? "black" : "white");
@@ -21,13 +21,13 @@ export default function CustomTextInput ({placeholder}: {placeholder: string}) {
           style={[{color: boxColor, borderColor: boxColor}, styles.inputBox]}
           onChangeText={onChangeText}
           value={text}
+          placeholder={placeholder}
         />
         {/* <TextInput
-          style={styles.inputBox}
+          style={[{color: boxColor, borderColor: boxColor}, styles.inputBox]}
           onChangeText={onChangeNumber}
           value={number}
-          placeholder="useless placeholder"
-          keyboardType="numeric"
+          placeholder={placeholder}
         /> */}
       </SafeAreaView>
     );

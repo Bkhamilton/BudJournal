@@ -16,7 +16,7 @@ import CustomTextInput from '../../components/TextBox/TextBox'
 
 export default function ProfileSettings({visible, toggle}: {visible: boolean, toggle: ()=>void}) {
   const colorScheme = useColorScheme();
-  const buttonColor = (colorScheme == 'light' ? "black" : "white")
+  const buttonColor = (colorScheme == 'light' ? "white" : "white")
   const lightColorBack = Colors[colorScheme ?? 'light'].colorBackground;
   const darkColorBack = Colors[colorScheme ?? 'dark'].colorBackground;
   const backgroundColor = (colorScheme == 'light' ? darkColorBack : lightColorBack);
@@ -25,26 +25,29 @@ export default function ProfileSettings({visible, toggle}: {visible: boolean, to
       <Modal visible={visible} animationType='fade' presentationStyle='overFullScreen' transparent={true} >
       <SafeAreaView style={styles.modalContainer}>
         <View style={styles.modalPopup}>
-          <Header title='Profile Settings' font='PsychoFun'/>
-          <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggle}>
-            <FontAwesome name='close' color={buttonColor} size={24}></FontAwesome>
-          </TouchableOpacity>
-          <ScrollView style={[{backgroundColor: backgroundColor}, styles.scrollView]}>
-            <View style={[{backgroundColor: backgroundColor}, styles.leftBox]}>
-              <TouchableOpacity style={[styles.insertPhotoButton, {borderColor: buttonColor}]}>
-                <MaterialCommunityIcons color={buttonColor} name='image-area' size={125}/>
-                <Text style={styles.insertPhotoButtonText}>Click To Insert Photo</Text>
-              </TouchableOpacity>
+          <Header title='Profile Settings' font='PsychoFun'>
+            <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggle}>
+              <FontAwesome name='close' color={buttonColor} size={24}></FontAwesome>
+            </TouchableOpacity>
+          </Header>
+          <ScrollView>
+            <View style={[{backgroundColor: backgroundColor}, styles.scrollView]}>
+              <View style={[{backgroundColor: backgroundColor}, styles.leftBox]}>
+                <TouchableOpacity style={[styles.insertPhotoButton, {borderColor: buttonColor}]}>
+                  <MaterialCommunityIcons color={buttonColor} name='image-area' size={125}/>
+                  <Text style={styles.insertPhotoButtonText}>Click To Insert Photo</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={[{backgroundColor: backgroundColor}, styles.rightBox]}>
+                <Text>Username</Text>
+                <CustomTextInput placeholder='Enter Username'/>
+                <Text>First Name</Text>
+                <CustomTextInput placeholder='Enter First Name'/>
+                <Text>Last Name</Text>
+                <CustomTextInput placeholder='Enter Last Name'/>
+              </View>
             </View>
-            <View style={[{backgroundColor: backgroundColor}, styles.rightBox]}>
-              <Text>Username</Text>
-              <CustomTextInput placeholder='Enter Username'/>
-              <Text>First Name</Text>
-              <CustomTextInput placeholder='Enter First Name'/>
-              <Text>Last Name</Text>
-              <CustomTextInput placeholder='Enter Last Name'/>
-            </View>
-          </ScrollView>
+            </ScrollView>
         </View>
       </SafeAreaView>
       </Modal>
@@ -89,17 +92,18 @@ const styles = StyleSheet.create({
     right: 16,
     top: 20
   },
+  scrollView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+
+  },
   modalContainer: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  scrollView: {
-    flexDirection: 'row'
-  },
   insertPhotoButton: {
-    width: 133,
     backgroundColor: 'transparent',
     borderWidth: 1,
   },
@@ -114,10 +118,12 @@ const styles = StyleSheet.create({
     padding: 3,
   },
   rightBox: {
-    left: 144,
-    bottom: 240,
-    paddingBottom: 106,
-    paddingTop: 35,
+    // left: 150,
+    // bottom: 240,
+    paddingBottom: 10,
+    paddingTop: 10,
+    borderWidth: 1,
+    width: 200,
     },
   
 });
