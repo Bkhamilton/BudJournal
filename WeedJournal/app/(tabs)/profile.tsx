@@ -19,14 +19,15 @@ export default function ProfileScreen() {
   
   return (
     <SafeAreaView style={styles.container}>
-      <Header title='Profile' font='PsychoFun'/>
-      <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggleState}>
-        <FontAwesome name='gears' color='black' size={24}></FontAwesome>
-      </TouchableOpacity>
-        <ProfileSettings visible={isOn} toggle={toggleState}></ProfileSettings>
+      <Header title='Profile' font='PsychoFun'>
+        <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggleState}>
+          <FontAwesome name='gears' color='black' size={24}></FontAwesome>
+        </TouchableOpacity>
+      </Header>
+      <ProfileSettings visible={isOn} toggle={toggleState}></ProfileSettings>
       <ScrollView>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/profile.tsx" />
+        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+        <EditScreenInfo path="app/(tabs)/profile.tsx" />
       </ScrollView>
     </SafeAreaView>
   );
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
   },
   settingsLink: {
     position: 'absolute',
-    right: 16,
-    top: 80
+    right: '8%',
+    bottom: '20%',
   }
 });

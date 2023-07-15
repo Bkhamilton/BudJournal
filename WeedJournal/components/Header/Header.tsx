@@ -3,7 +3,13 @@ import { StyleSheet } from 'react-native';
 import { Text, View } from '../../components/Themed';
 import { useFonts } from 'expo-font';
 
-export default function Header({ title, font }: { title: string, font: string }) {
+interface HeaderProps {
+  title: string;
+  font: string;
+  children: React.ReactNode;
+}
+
+export default function Header({ title, font, children }: HeaderProps) {
     const [fontsLoaded] = useFonts({
         'SpaceMono': require('../../assets/fonts/SpaceMono-Regular.ttf'),
         'Spliffs': require('../../assets/fonts/Spliffs-YE3o.ttf'),
@@ -26,6 +32,8 @@ export default function Header({ title, font }: { title: string, font: string })
             ) : (
                 <Text style={styles.title}>{title}</Text>
             )}
+
+            {children}
         </View>
     );
 }
@@ -37,7 +45,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   title: {
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: 'bold',
   },
 });
