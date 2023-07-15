@@ -31,7 +31,8 @@ export default function ProfileScreen() {
     'First': 'Kenneth',
     'Last': 'Sullivan',
     'Email': 'kenny.sull18@gmail.com',
-    'Username': 'Vmaxman'
+    'Username': 'Vmaxman',
+    'BIO': "1, 2, 3, and to the 4, ken doggy dog and benjamin is at the door. ready to make an entrance so back on up, cause you know we bout to code shit up."
   });
   const colorScheme = useColorScheme();
   const outerViewDark = Colors[colorScheme ?? 'light'].modalBackground;
@@ -61,8 +62,13 @@ export default function ProfileScreen() {
                   <Text>{userProperties.First} {userProperties.Last}</Text>
                   <Text style={{paddingTop: 8}}>{userProperties.Email}</Text>
               </View>
-              <Text></Text>
             </View>
+            
+            <View style={[{backgroundColor: BackgroundColor},styles.biographySection]}>
+                <Text style={{textAlign: 'center'}}> {userProperties.BIO} </Text>
+            </View>
+
+            
 
         </View>
       </ScrollView>
@@ -94,8 +100,7 @@ const styles = StyleSheet.create({
   },
   userImageContainer: {
     //borderWidth: 1,
-    width: 200,
-    height: 200,
+    padding: 25,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
@@ -107,16 +112,23 @@ const styles = StyleSheet.create({
     borderRadius: '100%',
   },
   profileHead: {
+    //borderWidth: 1,
     alignItems: 'center',
     paddingTop: 10,
   },
   firstAndLastName: {
+    //borderWidth: 1,
     alignItems: 'center',
     backgroundColor: 'transparent'
+    
   },
   profileInfo: {
     //borderWidth: 1,
+    paddingTop: 8,
+  },
+  biographySection: {
     paddingTop: 16,
-
+    alignItems: 'center',
+    paddingHorizontal: 32,
   }
 });

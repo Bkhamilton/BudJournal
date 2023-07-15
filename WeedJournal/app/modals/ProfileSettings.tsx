@@ -8,7 +8,7 @@ import ModalScreen from '../modal';
 import Header from '../../components/Header/Header';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 import ProfileScreen from '../(tabs)/profile';
-import CustomTextInput from '../../components/TextBox/TextBox'
+import CustomTextInput, { BioBox } from '../../components/TextBox/TextBox'
 import TextBox from '../../components/TextBox/TextBox';
 
 
@@ -17,7 +17,8 @@ interface UserProps {
   First: string,
   Last: string,
   Email: string,
-  Username: string
+  Username: string,
+  BIO: string,
 }
 
 export default function ProfileSettings({visible, toggle, user}: {visible: boolean, toggle: ()=>void, user: UserProps}) {
@@ -61,6 +62,9 @@ export default function ProfileSettings({visible, toggle, user}: {visible: boole
                 <TextBox placeholder='Enter Last Name' value={user.Last}/>
               </View>
             </View>
+            <View style={[{backgroundColor: backgroundColor}, styles.bioBox]}>
+                <BioBox placeholder='Bio here' value={user.BIO}></BioBox>
+              </View>
             </ScrollView>
         </View>
       </SafeAreaView>
@@ -139,5 +143,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: 200,
     },
+    bioBox: {
+      height: 100,
+      
+    }
   
 });
