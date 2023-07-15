@@ -6,15 +6,16 @@ interface RecentEntryProps {
     strain: string;
     name: string;
     rating: string;
+    size: string;
 }
 
-export default function RecentEntry({strain, name, rating} : RecentEntryProps) {
+export default function RecentEntry({strain, name, rating, size} : RecentEntryProps) {
   return (
     <View style={styles.container}>
         <View id="pic" style={styles.pfp}/>
         <View style={styles.titleContainer}>
             <View id="title">
-                <Text style={{ fontWeight: 'bold', height: '50%' }}>{strain}</Text>
+                <Text style={{ fontWeight: 'bold', height: '50%' }}>{strain} ({size} oz)</Text>
                 <Text style={{ height: '50%' }}>{name}</Text>
             </View>
             <View id="rating" style={styles.ratingContainer}>
@@ -33,8 +34,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   pfp: {
-    height: 44, 
-    width: 44, 
+    height: 48, 
+    width: 48, 
     borderWidth: 1, 
     borderRadius: '50%',
   },
