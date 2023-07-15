@@ -7,7 +7,7 @@ import Header from '../../components/Header/Header';
 export default function HistoryScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <Header title='History' font='SmokeDamage'/>
+      <Header title='History' font='PsychoFun'/>
       <ScrollView>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/(tabs)/history.tsx" />

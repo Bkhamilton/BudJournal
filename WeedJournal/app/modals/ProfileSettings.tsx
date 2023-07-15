@@ -5,7 +5,7 @@ import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Modal } from '../../components/Themed';
 import ModalScreen from '../modal';
 import Header from '../../components/Header/Header';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 import ProfileScreen from '../(tabs)/profile';
 
 
@@ -16,14 +16,20 @@ export default function ProfileSettings({visible, toggle}: {visible: boolean, to
     <Modal visible={visible} animationType='fade' presentationStyle='overFullScreen' transparent={true} >
     <SafeAreaView style={styles.modalContainer}>
       <View style={styles.modalPopup}>
-        <Header title='Profile Settings' font='SpaceGrotesk'/>
+        <Header title='Profile Settings' font='PsychoFun'/>
         <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggle}>
           <FontAwesome name='close' color={buttonColor} size={24}></FontAwesome>
         </TouchableOpacity>
-        <ScrollView>
-          <TouchableOpacity>
-            <FontAwesome name='image-landscape'></FontAwesome>
-          </TouchableOpacity>
+        <ScrollView style={{flexDirection: 'column'}}>
+          <View>
+            <TouchableOpacity style={[styles.insertPhotoButton, {borderColor: buttonColor}]}>
+              <MaterialCommunityIcons color={buttonColor} name='image-area' size={125}/>
+              <Text style={styles.insertPhotoButtonText}>Click To Insert Photo</Text>
+            </TouchableOpacity>
+          </View>
+          <View>
+            <Text style={styles.usernameText}>Username</Text>
+          </View>
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -47,6 +53,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingVertical: 15,
     paddingHorizontal: 15,
+    
   },
   title: {
     fontSize: 20,
@@ -73,4 +80,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  insertPhotoButton: {
+    width: 133,
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    padding: 4,
+    paddingBottom: 16,
+    alignItems: 'center',
+  },
+  insertPhotoButtonText: {
+    textAlign: 'center',
+    font: ''
+  },
+  usernameText: {
+    
+    
+  }
 });

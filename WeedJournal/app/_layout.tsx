@@ -18,9 +18,9 @@ export const unstable_settings = {
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-
     SpaceGrotesk: require('../assets/fonts/SpaceGrotesk/SpaceGrotesk.ttf'),
     SpaceGrotesk_Bold: require('../assets/fonts/SpaceGrotesk/SpaceGrotesk-Bold.ttf'),
+    PsychoFun: require('../assets/fonts/PsychofunRegular.ttf'),
     ...FontAwesome.font,
   });
 
