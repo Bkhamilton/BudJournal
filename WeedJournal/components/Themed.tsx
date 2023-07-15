@@ -71,7 +71,7 @@ export function ScrollView(props: ScrollViewProps) {
 }
 export function Modal(props: ModalProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'modalBackground');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
 
   return <DefaultModal style={[{ backgroundColor }, style]} {...otherProps} />;
 }
