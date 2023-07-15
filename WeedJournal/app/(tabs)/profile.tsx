@@ -23,7 +23,7 @@ export default function ProfileScreen() {
       <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggleState}>
         <FontAwesome name='gears' color='black' size={24}></FontAwesome>
       </TouchableOpacity>
-      <ProfileSettings visible={isOn} toggle={toggleState}></ProfileSettings>
+        <ProfileSettings visible={isOn} toggle={toggleState}></ProfileSettings>
       <ScrollView>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/(tabs)/profile.tsx" />
