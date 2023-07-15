@@ -21,7 +21,7 @@ export default function RootLayout() {
     SpaceGrotesk: require('../assets/fonts/SpaceGrotesk/SpaceGrotesk.ttf'),
     SpaceGrotesk_Bold: require('../assets/fonts/SpaceGrotesk/SpaceGrotesk-Bold.ttf'),
     PsychoFun: require('../assets/fonts/PsychofunRegular.ttf'),
-    Spliffs: require('../assets/fonts/Spliffs-YE3o.ttf'),
+    Spliffs: require('../assets/fonts/Spliffs.ttf'),
     ...FontAwesome.font,
   });
 

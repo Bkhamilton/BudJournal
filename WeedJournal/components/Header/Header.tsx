@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     paddingHorizontal: 16,
     paddingVertical: 8,
+    borderBottomColor: 'rgba(255,255,255,0.1)',
+    borderBottomWidth: 1
   },
   title: {
     fontSize: 24,

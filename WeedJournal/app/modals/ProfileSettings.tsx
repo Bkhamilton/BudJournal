@@ -13,9 +13,14 @@ import TextBox from '../../components/TextBox/TextBox';
 
 
 
+interface UserProps {
+  First: string,
+  Last: string,
+  Email: string,
+  Username: string
+}
 
-
-export default function ProfileSettings({visible, toggle}: {visible: boolean, toggle: ()=>void}) {
+export default function ProfileSettings({visible, toggle, user}: {visible: boolean, toggle: ()=>void, user: UserProps}) {
   const colorScheme = useColorScheme();
   const buttonColor = (colorScheme == 'light' ? "white" : "white")
   const innerViewLight = Colors[colorScheme ?? 'light'].modalColorBackground;
@@ -27,6 +32,9 @@ export default function ProfileSettings({visible, toggle}: {visible: boolean, to
 
   const backgroundColor = (colorScheme == 'light' ? innerViewDark : innerViewLight);
   const outerBackgroundColor = (colorScheme == 'light' ? outerViewDark : outerViewLight)
+
+  
+
     return (
       <Modal visible={visible} animationType='fade' presentationStyle='overFullScreen' transparent={true} >
       <SafeAreaView style={styles.modalContainer}>
@@ -46,11 +54,11 @@ export default function ProfileSettings({visible, toggle}: {visible: boolean, to
               </View>
               <View style={[{backgroundColor: backgroundColor}, styles.rightBox]}>
                 <Text>Username</Text>
-                <TextBox placeholder='Enter Username'/>
+                <TextBox placeholder='Enter Username' value={user.Username}/>
                 <Text>First Name</Text>
-                <TextBox placeholder='Enter First Name'/>
+                <TextBox placeholder='Enter First Name' value={user.First}/>
                 <Text>Last Name</Text>
-                <TextBox placeholder='Enter Last Name'/>
+                <TextBox placeholder='Enter Last Name' value={user.Last}/>
               </View>
             </View>
             </ScrollView>

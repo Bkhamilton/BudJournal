@@ -7,7 +7,7 @@ import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Modal } from '.
 import Header from '../../components/Header/Header';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function TextBox ({placeholder}: {placeholder: string}) {
+export default function TextBox ({placeholder, value}: {placeholder: string, value: string}) {
     const [text, onChangeText] = React.useState(placeholder);
     const [number, onChangeNumber] = React.useState('');
     
@@ -22,7 +22,7 @@ export default function TextBox ({placeholder}: {placeholder: string}) {
         <TextInput
           style={[{backgroundColor: 'transparent',color: boxColor, borderColor: boxColor}, styles.inputBox]}
           onChangeText={onChangeText}
-          value={text}
+          value={value}
           placeholder={placeholder}
         />
         {/* <TextInput
