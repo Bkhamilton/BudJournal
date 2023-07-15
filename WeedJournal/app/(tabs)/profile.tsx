@@ -1,17 +1,12 @@
 import { StyleSheet, Image, useColorScheme } from 'react-native';
 import { useState } from 'react';
-import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View, ScrollView, SafeAreaView, TouchableOpacity } from '../../components/Themed';
 import Header from '../../components/Header/Header';
 import ProfileSettings from '../modals/ProfileSettings';
 import { FontAwesome, createMultiStyleIconSet, Entypo } from '@expo/vector-icons';
-import { Link } from 'expo-router';
-import { PreventRemoveContext } from '@react-navigation/native';
-import { transform } from '@babel/core';
 import Colors from '../../constants/Colors';
 
 export default function ProfileScreen() {
-  
   const [isOn, setIsOn]= useState(false);
 
   const toggleState = () => {
@@ -27,13 +22,39 @@ export default function ProfileScreen() {
     })
   }
 
-  const [userProperties, setUser] = useState({
-    'First': 'Kenneth',
-    'Last': 'Sullivan',
-    'Email': 'kenny.sull18@gmail.com',
-    'Username': 'Vmaxman',
-    'BIO': "1, 2, 3, and to the 4, ken doggy dog and benjamin is at the door. ready to make an entrance so back on up, cause you know we bout to code shit up."
-  });
+  const users = [{
+    fName: 'Kenneth', 
+    lName: "Sullivan", 
+    username: "Vmaxman", 
+    email: 'kenny.sull18@gmail.com', 
+    bio: '1, 2, 3, and to the 4, ken doggy dog and benjamin is at the door. ready to make an entrance so back on up, cause you know we bout to code shit up.'},
+    {
+      fName: 'Ben', 
+      lName: "Hamilton", 
+      username: "benkhamilton", 
+      email: 'bkhamilton310@gmail.com', 
+      bio: "Who are you talking to you right now? Who is it you think you see? Do you know how much I make in a year? I mean, even if I told you, you wouldnt believe it."
+    }, {
+      fName: 'Todd', 
+      lName: "Furple", 
+      username: "CrackleSpack", 
+      email: 'tfurple@gmail.com', 
+      bio: 'Do you know what would happen if I suddenly stopped going into work? A business, big enough that it could be listed on the NASDAQ goes belly up, disappears, it CEASES TO EXIST without me.'
+    }, {
+      fName: 'Leif', 
+      lName: "Erickson", 
+      username: "Vmaxman", 
+      email: 'kenny.sull18@gmail.com', 
+      bio: 'No, you clearly dont know who youre talking to. So let me clue you in. I am not in Danger, Skylar. I AM the Danger. A guy opens his door and gets shot and you think that of me? No'
+    }, {
+      fName: 'Inosuke', 
+      lName: "Hashibura", 
+      username: "lordInosuke", 
+      email: 'lordInosuke@gmail.com', 
+      bio: 'I am the one who knocks!'
+    }]
+
+  const [userProperties, setUser] = useState(users[0]);
 
   
   const colorScheme = useColorScheme();
