@@ -4,7 +4,7 @@
  */
 
 import { Text as DefaultText, useColorScheme, View as DefaultView, TouchableOpacity as DefaultTouchableOpacity,
-   SafeAreaView as DefaultSafeAreaView, ScrollView as DefaultScrollView } from 'react-native';
+   SafeAreaView as DefaultSafeAreaView, ScrollView as DefaultScrollView, Modal as DefaultModal } from 'react-native';
 
 import Colors from '../constants/Colors';
 
@@ -32,6 +32,7 @@ export type ViewProps = ThemeProps & DefaultView['props'];
 export type TouchableOpacityProps = ThemeProps & DefaultTouchableOpacity['props'];
 export type SafeAreaViewProps = ThemeProps & DefaultSafeAreaView['props'];
 export type ScrollViewProps = ThemeProps & DefaultScrollView['props'];
+export type ModalProps = ThemeProps & DefaultModal['props'];
 
 export function Text(props: TextProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
@@ -67,4 +68,10 @@ export function ScrollView(props: ScrollViewProps) {
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'colorBackground');
 
   return <DefaultScrollView style={[{ backgroundColor }, style]} {...otherProps} />;
+}
+export function Modal(props: ModalProps) {
+  const { style, lightColor, darkColor, ...otherProps } = props;
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+
+  return <DefaultModal style={[{ backgroundColor }, style]} {...otherProps} />;
 }
