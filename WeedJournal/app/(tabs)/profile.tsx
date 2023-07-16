@@ -120,9 +120,8 @@ export default function ProfileScreen() {
             <ProfileHeader user={userProperties} bearImage={bearImages[userProperties.bear]}>
               <Text style={{ width: 350, textAlign: 'center',fontFamily: "Spliffs", fontSize: 30}}>{userProperties.username}</Text>
             </ProfileHeader>
-            <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={openFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
-          
           <View style={styles.profileBody}>
+          <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={openFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
               <View style={styles.panels}>
                 <View style={styles.contentPanel} >
                   <Text style={styles.title}>Favorites</Text>
@@ -159,7 +158,9 @@ const styles = StyleSheet.create({
     bottom: '25%',
   },
   profileBody: {
+    marginVertical: '5%',
     backgroundColor: 'transparent',
+    gap: 20,
   },
   panels: {
     flexDirection: 'column',

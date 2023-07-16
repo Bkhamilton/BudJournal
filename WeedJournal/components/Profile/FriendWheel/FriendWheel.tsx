@@ -48,10 +48,12 @@ const styles = StyleSheet.create({
         width: '90%',
         marginHorizontal: '5%',
         borderRadius: 16,
-        marginVertical: '5%',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        alignItems: 'center'
+        alignItems: 'center',
+        shadowOffset: {width: -8, height: 8},
+        shadowOpacity: 0.6,
+        shadowRadius: 3
       },
       friendsInnerContainer: {
         height: 66,
