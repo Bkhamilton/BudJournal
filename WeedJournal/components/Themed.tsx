@@ -41,6 +41,22 @@ export function Text(props: TextProps) {
   return <DefaultText style={[{ color }, style]} {...otherProps} />;
 }
 
+export function SpaceGrotesk(props: TextProps) {
+  const { style, lightColor, darkColor, ...otherProps } = props;
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const fontFamily = 'SpaceGrotesk';
+
+  return <DefaultText style={[{ color, fontFamily }, style]} {...otherProps} />;
+}
+
+export function SpaceGroteskBold(props: TextProps) {
+  const { style, lightColor, darkColor, ...otherProps } = props;
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const fontFamily = 'SpaceGrotesk_Bold';
+
+  return <DefaultText style={[{ color, fontFamily }, style]} {...otherProps} />;
+}
+
 export function View(props: ViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');

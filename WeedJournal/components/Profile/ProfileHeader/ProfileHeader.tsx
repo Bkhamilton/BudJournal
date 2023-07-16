@@ -1,5 +1,5 @@
 import { StyleSheet, Image, useColorScheme } from 'react-native';
-import { Text, View } from '../../Themed';
+import { Text, View, SpaceGrotesk, SpaceGroteskBold } from '../../Themed';
 
 export default function ProfileHeader({user, bearImage, children}) {
 
@@ -16,13 +16,13 @@ export default function ProfileHeader({user, bearImage, children}) {
 
             <View style={[{backgroundColor: 'transparent' },styles.profileInfo]}>
               <View style={[{backgroundColor: 'transparent'},styles.firstAndLastName]}>
-                <Text style={{ fontFamily: 'SpaceGrotesk_Bold' }}>{fName} {lName}</Text>
-                <Text style={{ paddingTop: 8, fontFamily: 'SpaceGrotesk' }}>{email}</Text>
+                <SpaceGroteskBold>{fName} {lName}</SpaceGroteskBold>
+                <SpaceGrotesk style={{ paddingTop: 8 }}>{email}</SpaceGrotesk>
               </View>
             </View>
             
             <View style={[{backgroundColor: 'transparent' },styles.biographySection]}>
-              <Text style={{textAlign: 'center', fontFamily: 'SpaceGrotesk'}}> {bio} </Text>
+              <SpaceGrotesk style={{textAlign: 'center', fontFamily: 'SpaceGrotesk'}}> {bio} </SpaceGrotesk>
             </View>
         </View>
     );
