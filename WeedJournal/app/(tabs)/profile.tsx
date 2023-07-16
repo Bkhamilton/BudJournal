@@ -18,33 +18,6 @@ import broBear from '../../assets/images/bears/broBear.jpg';
 
 export default function ProfileScreen() {
   
-  const [settingsModal, setSettingsModal]= useState(false);
-
-  const toggleSettingsModal = () => {
-    setSettingsModal((prevState) => !prevState) 
-  }
-
-  const [friendModal, setFriendModal]= useState(false);
-
-  const toggleFriendModal = () => {
-    setFriendModal((prevState) => !prevState) 
-  }
-
-  const [allFriendsModal, setAllFriendsModal]= useState(false);
-
-  const toggleAllFriendsModal = () => {
-    setAllFriendsModal((prevState) => !prevState) 
-  }
-
-  const updateState = (key, updatedValue) => {
-    setUser(prevState => {
-      return {
-        ...prevState, 
-        [key]: updatedValue
-      }
-    })
-  }
-
   const bearImages = {
     polarBear,
     chillBear,
@@ -89,9 +62,40 @@ export default function ProfileScreen() {
       bear: 'snowBear',
       bio: 'I am the one who knocks!!'
     }]
-  
+
   const userNum = Math.random() * users.length;
   const [userProperties, setUser] = useState(users[Math.floor(userNum)]);
+  const [tempFriend, setTempFriend] = useState({
+    fName: "First",
+    lName: "Last",
+    username: "Uuser",
+    email: "eep@ap.com",
+    bear: "polarBear",
+    bio: "Welcome to the Thunderdome"
+  })
+  const [friendIndex, setFriendIndex] = useState(0);
+  const [settingsModal, setSettingsModal]= useState(false);
+  const [friendModal, setFriendModal]= useState(false);
+  const [allFriendsModal, setAllFriendsModal]= useState(false);
+
+  const toggleSettingsModal = () => {
+    setSettingsModal((prevState) => !prevState) 
+  }
+
+  const openFriendModal = (props) => {
+    setTempFriend(props);
+    toggleFriendModal();
+  }
+
+  const toggleFriendModal = () => {
+    setFriendModal((prevState) => !prevState);
+  }
+
+  const toggleAllFriendsModal = () => {
+    setAllFriendsModal((prevState) => !prevState) 
+  }
+  
+
 
 
   const colorScheme = useColorScheme();
@@ -109,7 +113,7 @@ export default function ProfileScreen() {
       <ScrollView>
 
         <ViewAllFriends visible={allFriendsModal} toggle={toggleAllFriendsModal} />
-        <ViewFriend visible={friendModal} toggle={toggleFriendModal} user={users[1]}/>
+        <ViewFriend visible={friendModal} toggle={toggleFriendModal} user={tempFriend} bearImage={bearImages[tempFriend.bear]}/>
 
         <View>
 
@@ -130,7 +134,7 @@ export default function ProfileScreen() {
             <View style={[{backgroundColor: BackgroundColor},styles.biographySection]}>
               <Text style={{textAlign: 'center'}}> {userProperties.bio} </Text>
             </View>
-            <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={toggleFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
+            <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={openFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
         </View>
       </ScrollView>
     </SafeAreaView>

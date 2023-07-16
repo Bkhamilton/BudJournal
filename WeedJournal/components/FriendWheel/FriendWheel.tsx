@@ -15,7 +15,7 @@ interface UserProps {
   }
 
 
-export default function FriendWheel ({toggleFriendModal, toggleAllFriendsModal, user, bears, users} : {toggleFriendModal : ({user}: {user: UserProps}) => void, toggleAllFriendsModal : () => void, user: UserProps, bears: any, users: any[],}) {
+export default function FriendWheel ({toggleFriendModal, toggleAllFriendsModal, user, bears, users} : {toggleFriendModal : (index: number) => void, toggleAllFriendsModal : () => void, user: UserProps, bears: any, users: any[],}) {
 
     const colorScheme = useColorScheme();
     const BackgroundColor = (colorScheme == 'light' ? Colors[colorScheme ?? 'light'].modalBackground : Colors[colorScheme ?? 'dark'].modalBackground);
@@ -25,9 +25,9 @@ export default function FriendWheel ({toggleFriendModal, toggleAllFriendsModal, 
         <View style={[{backgroundColor: BackgroundColor}]}>
               <View style={styles.friendsContainer}>
                 <View style={styles.friendsInnerContainer}>
-                  {users.map((user, index) => (
-                    <TouchableOpacity key={index} onPress={() => toggleFriendModal(user)} style={{backgroundColor:'transparent'}}>
-                      <Image style={styles.userImage} alt='User Image Here' source={bears[user.bear]}></Image>
+                  {users.map((curUser, index) => (
+                    <TouchableOpacity key={index} onPress={() => toggleFriendModal(curUser)} style={{backgroundColor:'transparent'}}>
+                      <Image style={styles.userImage} alt='User Image Here' source={bears[curUser.bear]}></Image>
                     </TouchableOpacity>
                   ))}
                 </View>

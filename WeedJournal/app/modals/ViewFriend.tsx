@@ -25,7 +25,10 @@ interface UserProps {
     bio: string,
   }
 
-export default function ViewFriend({visible, toggle, user}: {visible: boolean, toggle: ()=>void,  user: UserProps}) {
+export default function ViewFriend({visible, toggle, user, bearImage}: {visible: boolean, toggle: ()=>void,  user: UserProps, bearImage: any}) {
+
+    const {fName, lName, username, email, bear, bio} = user;
+
     const colorScheme = useColorScheme();
     const buttonColor = (colorScheme == 'light' ? "black" : "white")
 
@@ -46,28 +49,27 @@ export default function ViewFriend({visible, toggle, user}: {visible: boolean, t
     <Modal visible={visible} animationType='slide' presentationStyle='overFullScreen' transparent={true} >
     <SafeAreaView style={styles.modalContainer}>
       <View style={[{backgroundColor: outerBackgroundColor}, styles.modalPopup]}>
-        <Header title='{Friends Name}' font='PsychoFun'>
+        <Header title={username} font='PsychoFun'>
           <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggle}>
             <FontAwesome name='close' color={buttonColor} size={24}></FontAwesome>
           </TouchableOpacity>
         </Header>
         <ScrollView style={{backgroundColor: 'transparent'}}>
             <View style={[{backgroundColor: BackgroundColor}, styles.profileHead]}>
-                <Text style={{ width: 350, textAlign: 'center',fontFamily: "Spliffs", fontSize: 30}}>{user.username}</Text>
                 <View style={[styles.userImageContainer]}>
-                    <Image style={styles.userImage} alt='User Image Here' source={user.bear}></Image>
+                    <Image style={styles.userImage} alt='User Image Here' source={bearImage}></Image>
                 </View>  
                 </View>
 
                 <View style={[{backgroundColor: BackgroundColor},styles.profileInfo]}>
                 <View style={[{backgroundColor: BackgroundColor},styles.firstAndLastName]}>
-                    <Text>{user.fName} {user.lName}</Text>
-                    <Text style={{paddingTop: 8}}>{user.email}</Text>
+                    <Text>{fName} {lName}</Text>
+                    <Text style={{paddingTop: 8}}>{email}</Text>
                 </View>
                 </View>
                 
                 <View style={[{backgroundColor: BackgroundColor},styles.biographySection]}>
-                <Text style={{textAlign: 'center'}}> {user.bio} </Text>
+                <Text style={{textAlign: 'center'}}> {bio} </Text>
             </View>
           </ScrollView>
       </View>
@@ -161,7 +163,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         height: 100,
         width: 100,
-        borderRadius: '100%',
+        borderRadius: 100,
       },
       profileHead: {
         //borderWidth: 1,
