@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     backgroundColor: 'transparent',
   },
   modalContainer: {
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     //borderWidth: 1,
     paddingBottom: 20,
     paddingTop: 20,
-    width: 150,
+    width: '45%',
     backgroundColor: 'transparent'
   },
   rightBox: {
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingTop: 10,
     //borderWidth: 1,
-    width: 200,
+    width: '55%',
     backgroundColor: 'transparent',
     },
   top: {
@@ -169,20 +169,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     borderWidth: 1,
     borderRadius: 32,
-    width: '95%',
+    width: '92%',
     marginTop: 4,
-    margin: '2.5%',
+    margin: '5%',
     shadowOffset: {width: -8, height: 8},
     shadowOpacity: 0.6,
     shadowRadius: 3,
+    flex: 1,
   },
   middle: {
-    height: 150,
+    height: '40%',
     borderWidth: 1,
     borderRadius: 32,
-    marginTop: 8,
-    width: '95%',
-    marginHorizontal: '2.5%',
+    width: '92%',
+    margin: '5%',
     shadowOffset: {width: -8, height: 8},
     shadowOpacity: 0.6,
     shadowRadius: 3
