@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { Text, TouchableOpacity, View } from '../../components/Themed';
+import { Text, TouchableOpacity, View, SpaceGroteskBold, SpaceGrotesk } from '../../components/Themed';
 
 interface RecentEntryProps {
     strain: string;
@@ -15,11 +15,11 @@ export default function RecentEntry({strain, name, rating, size} : RecentEntryPr
         <View id="pic" style={styles.pfp}/>
         <View style={styles.titleContainer}>
             <View id="title">
-                <Text style={{ fontWeight: 'bold', height: '50%' }}>{strain} ({size} oz)</Text>
-                <Text style={{ height: '50%' }}>{name}</Text>
+                <SpaceGroteskBold style={{ height: '50%' }}>{strain} ({size} oz)</SpaceGroteskBold>
+                <SpaceGrotesk style={{ height: '50%' }}>{name}</SpaceGrotesk>
             </View>
             <View id="rating" style={styles.ratingContainer}>
-                <Text>{rating} Stars</Text>
+                <SpaceGrotesk>{rating} Stars</SpaceGrotesk>
             </View>
         </View>
     </View>
