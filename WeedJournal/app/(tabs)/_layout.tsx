@@ -2,7 +2,7 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { TouchableOpacity } from '../../components/Themed';
 import { Image, useColorScheme } from 'react-native';
-import logo from '../../assets/images/weedLeafRedo.png';
+import logo from '../../assets/images/cannabis.png';
 
 import Colors from '../../constants/Colors';
 
@@ -41,7 +41,7 @@ function TabBarButton({ name, active, colorScheme }: TabBarButtonProps) {
       }}
     >
       <Image
-        style={{ width: 36, height: 40 }}
+        style={{ width: 40, height: 40 }}
         source={logo}
       />
       </TouchableOpacity>

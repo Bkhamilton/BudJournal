@@ -21,8 +21,8 @@ export default function FriendsScreen() {
       const size = sizes[Math.floor(Math.random() * sizes.length)];
   
     // Rating between 2.0-10.0
-    let rating = Math.random() * 80 + 20; 
-    rating = rating / 10;
+    let rating = Math.random() * 60 + 40; 
+    rating = rating / 20;
     const roundedRating = rating.toFixed(1);
   
     const newEntry = {
