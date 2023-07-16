@@ -13,6 +13,7 @@ import tongueBear from '../../assets/images/bears/tongueBear.jpg';
 import snowBear from '../../assets/images/bears/snowBear.jpg';
 import broBear from '../../assets/images/bears/broBear.jpg';
 import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader';
+import EditScreenInfo from '../../components/EditScreenInfo';
 
 
 
@@ -104,22 +105,36 @@ export default function ProfileScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+
       <Header title='Profile' font='PsychoFun'>
         <TouchableOpacity style={[styles.settingsLink, styles.transparentBackground]} onPress={toggleSettingsModal}>
           <FontAwesome name='gears' color={buttonColor} size={24}></FontAwesome>
         </TouchableOpacity>
       </Header>
       <ProfileSettings visible={settingsModal} toggle={toggleSettingsModal} user={userProperties} ></ProfileSettings>
+      
       <ScrollView>
-
-        <ViewAllFriends visible={allFriendsModal} toggle={toggleAllFriendsModal} />
-        <ViewFriend visible={friendModal} toggle={toggleFriendModal} user={tempFriend} bearImage={bearImages[tempFriend.bear]}/>
-
+            <ViewAllFriends visible={allFriendsModal} toggle={toggleAllFriendsModal} />
+            <ViewFriend visible={friendModal} toggle={toggleFriendModal} user={tempFriend} bearImage={bearImages[tempFriend.bear]}/>
         <View style={styles.transparentBackground}>
-          <ProfileHeader user={userProperties} bearImage={bearImages[userProperties.bear]}>
-            <Text style={{ width: 350, textAlign: 'center',fontFamily: "Spliffs", fontSize: 30}}>{userProperties.username}</Text>
-          </ProfileHeader>
-          <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={openFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
+            <ProfileHeader user={userProperties} bearImage={bearImages[userProperties.bear]}>
+              <Text style={{ width: 350, textAlign: 'center',fontFamily: "Spliffs", fontSize: 30}}>{userProperties.username}</Text>
+            </ProfileHeader>
+            <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={openFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
+          
+          <View style={styles.profileBody}>
+              <View style={styles.panels}>
+                <View style={styles.contentPanel} >
+                  <Text style={styles.title}>Favorites</Text>
+                </View>
+              </View>
+              <View style={styles.panels}>
+                  <View style={styles.contentPanel}>
+                        <Text style={styles.title}>Recent Journal Entries</Text>
+                  </View>
+              </View>
+          </View>
+
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -143,4 +158,22 @@ const styles = StyleSheet.create({
     right: '8%',
     bottom: '25%',
   },
+  profileBody: {
+    backgroundColor: 'transparent',
+  },
+  panels: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    borderWidth: 2,
+    width: '90%',
+    marginHorizontal: '5%',
+    borderRadius: '30%',
+  },
+  contentPanel: {
+    alignItems: 'center',
+    marginVertical: 8,
+    paddingVertical: 8,
+    width: '90%',
+    margin: '5%',
+  }
 });

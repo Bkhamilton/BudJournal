@@ -1,18 +1,48 @@
 import { StyleSheet, useColorScheme, TextInput } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View } from '../../../Themed';
+import { useRootNavigationState } from 'expo-router';
 
-export default function BioBox ({placeholder, value}: {placeholder: string, value: string}) {
+
+interface UserProps {
+  fName: string,
+  lName: string,
+  email: string,
+  username: string,
+  bear: string,
+  bio: string,
+}
+
+export default function BioBox ({placeholder, curUserProperty}: {placeholder: string, curUserProperty: UserProps}) {
     const [text, onChangeText] = React.useState(placeholder);
     
     const colorScheme = useColorScheme();
     const boxColor = (colorScheme == 'light' ? "black" : "white");
 
+
+    const [curUser, setUser] = useState({
+      'fName': curUserProperty.fName,
+      'lName': curUserProperty.lName,
+      'email': curUserProperty.email,
+      'username': curUserProperty.username,
+      'bear': curUserProperty.bear,
+      'bio': curUserProperty.bio,
+    });
+
+    const handleChange = (name, text) => {
+      setUser({
+        ...curUser,
+        [name]: text 
+      });
+    }
+
+    let value = curUser.bio;
+    
     return (
       <View style={{backgroundColor: 'transparent'}}>
         <TextInput
-          style={[{backgroundColor: 'transparent',color: boxColor, borderColor: boxColor, textAlign: 'left'}, styles.bioBox]}
-          onChangeText={onChangeText}
+          style={[{backgroundColor: 'transparent',color: boxColor, borderColor: boxColor, textAlign: 'justify'}, styles.bioBox]}
+          onChangeText={text => handleChange('bio', text)}
           value={value}
           placeholder={placeholder}
           multiline={true}
@@ -23,10 +53,9 @@ export default function BioBox ({placeholder, value}: {placeholder: string, valu
 
 const styles = StyleSheet.create({
     bioBox: {
-        height: 100,
-        borderWidth: 1,
-        marginTop: 8,
-        padding: 10,
+        height: '100%',
+        paddingTop: 10,
+        paddingHorizontal: 10,
         width: '100%',
     }
 });
