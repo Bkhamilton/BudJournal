@@ -30,14 +30,14 @@ export default function ProfileHeader({user, bearImage, children}) {
 
 const styles = StyleSheet.create({
   userImageContainer: {
-    padding: 10,
+    padding: 16,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
   userImage: {
-    height: 110,
-    width: 110,
+    height: 100,
+    width: 100,
     borderRadius: 100,
   },
   profileHead: {
