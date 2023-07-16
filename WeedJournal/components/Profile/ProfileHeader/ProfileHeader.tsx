@@ -14,15 +14,15 @@ export default function ProfileHeader({user, bearImage, children}) {
               </View>  
             </View>
 
-            <View style={[{backgroundColor: 'transparent'},styles.profileInfo]}>
+            <View style={[{backgroundColor: 'transparent' },styles.profileInfo]}>
               <View style={[{backgroundColor: 'transparent'},styles.firstAndLastName]}>
-                <Text>{fName} {lName}</Text>
-                <Text style={{paddingTop: 8}}>{email}</Text>
+                <Text style={{ fontFamily: 'SpaceGrotesk_Bold' }}>{fName} {lName}</Text>
+                <Text style={{ paddingTop: 8, fontFamily: 'SpaceGrotesk' }}>{email}</Text>
               </View>
             </View>
             
-            <View style={[{backgroundColor: 'transparent'},styles.biographySection]}>
-              <Text style={{textAlign: 'center'}}> {bio} </Text>
+            <View style={[{backgroundColor: 'transparent' },styles.biographySection]}>
+              <Text style={{textAlign: 'center', fontFamily: 'SpaceGrotesk'}}> {bio} </Text>
             </View>
         </View>
     );
