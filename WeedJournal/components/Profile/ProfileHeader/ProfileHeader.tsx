@@ -30,7 +30,7 @@ export default function ProfileHeader({user, bearImage, children}) {
 
 const styles = StyleSheet.create({
   userImageContainer: {
-    padding: 16,
+    padding: 10,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     
   },
   profileInfo: {
-    paddingTop: 8,
+    paddingTop: 4,
   },
   biographySection: {
     paddingTop: 16,

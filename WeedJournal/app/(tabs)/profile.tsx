@@ -4,7 +4,7 @@ import { Text, View, ScrollView, SafeAreaView, TouchableOpacity } from '../../co
 import Header from '../../components/Header/Header';
 import ProfileSettings from '../modals/ProfileSettings';
 import { FontAwesome } from '@expo/vector-icons';
-import FriendWheel from '../../components/FriendWheel/FriendWheel';
+import FriendWheel from '../../components/Profile/FriendWheel/FriendWheel';
 import ViewAllFriends from '../modals/VewAllFriends';
 import ViewFriend from '../modals/ViewFriend';
 import polarBear from '../../assets/images/bears/polarBear.jpg';
