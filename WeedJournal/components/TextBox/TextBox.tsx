@@ -1,6 +1,6 @@
 import { StyleSheet, useColorScheme, TextInput } from 'react-native';
 import React from 'react';
-import { Text, View } from '../../../Themed';
+import { Text, View } from '../Themed';
 
 export default function TextBox ({placeholder, value}: {placeholder: string, value: string}) {
     const [text, onChangeText] = React.useState(placeholder);

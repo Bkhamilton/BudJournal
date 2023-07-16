@@ -2,7 +2,7 @@ import { Image, StyleSheet, useColorScheme } from 'react-native';
 import { Modal, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from '../../components/Themed';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 import Header from '../../components/Header/Header';
-import TextBox from '../../components/Profile/ProfileSettings/TextBox/TextBox';
+import TextBox from '../../components/TextBox/TextBox';
 import Colors from '../../constants/Colors';
 import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader';
 
@@ -37,20 +37,20 @@ export default function ViewFriend({visible, toggle, user, bearImage}: {visible:
   
     return (
     <Modal visible={visible} animationType='slide' presentationStyle='overFullScreen' transparent={true} >
-    <SafeAreaView style={styles.modalContainer}>
-      <View style={[{backgroundColor: outerBackgroundColor}, styles.modalPopup]}>
-        <Header title={username} font='PsychoFun'>
-          <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggle}>
-            <FontAwesome name='close' color={buttonColor} size={24}></FontAwesome>
-          </TouchableOpacity>
-        </Header>
-        <ScrollView style={{backgroundColor: 'transparent'}}>
-          <ProfileHeader user={user} bearImage={bearImage}>
+      <SafeAreaView style={styles.modalContainer}>
+        <View style={[{backgroundColor: outerBackgroundColor}, styles.modalPopup]}>
+          <Header title={username} font='PsychoFun'>
+            <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggle}>
+              <FontAwesome name='close' color={buttonColor} size={24}></FontAwesome>
+            </TouchableOpacity>
+          </Header>
+          <ScrollView style={{backgroundColor: 'transparent'}}>
+            <ProfileHeader user={user} bearImage={bearImage}>
 
-          </ProfileHeader>
-        </ScrollView>
-      </View>
-    </SafeAreaView>
+            </ProfileHeader>
+          </ScrollView>
+        </View>
+      </SafeAreaView>
     </Modal>
   );
 }

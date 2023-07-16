@@ -5,7 +5,7 @@ import Colors from '../../constants/Colors';
 import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Modal } from '../../components/Themed';
 import Header from '../../components/Header/Header';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
-import TextBox from '../../components/Profile/ProfileSettings/TextBox/TextBox';
+import TextBox from '../../components/TextBox/TextBox';
 import BioBox from '../../components/Profile/ProfileSettings/BioBox/BioBox';
 
 
