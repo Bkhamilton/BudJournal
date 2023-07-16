@@ -45,6 +45,14 @@ export default function ProfileScreen() {
     })
   }
 
+  const bearImages = {
+    polarBear,
+    chillBear,
+    broBear,
+    tongueBear,
+    snowBear
+  }
+
   const users = [{
     fName: 'Kenneth',
     lName: "Sullivan", 
@@ -64,21 +72,21 @@ export default function ProfileScreen() {
       lName: "Furple", 
       username: "CrackleSpack", 
       email: 'tfurple@gmail.com', 
-      bear: 'polarBear',
+      bear: 'tongueBear',
       bio: 'Do you know what would happen if I suddenly stopped going into work? A business, big enough that it could be listed on the NASDAQ goes belly up, disappears, it CEASES TO EXIST without me.'
     }, {
       fName: 'Leif', 
       lName: "Erickson", 
       username: "LeifTheCopySpleef", 
       email: 'leif.erikson_day@gmail.com', 
-      bear: 'polarBear',
+      bear: 'broBear',
       bio: 'No, you clearly dont know who youre talking to. So let me clue you in. I am not in Danger, Skylar. I AM the Danger. A guy opens his door and gets shot and you think that of me? No'
     }, {
       fName: 'Inosuke', 
       lName: "Hashibura", 
       username: "lordInosuke", 
       email: 'lordInosuke@gmail.com', 
-      bear: 'polarBear',
+      bear: 'snowBear',
       bio: 'I am the one who knocks!!'
     }]
   
@@ -108,7 +116,7 @@ export default function ProfileScreen() {
             <View style={[{backgroundColor: BackgroundColor}, styles.profileHead]}>
               <Text style={{ width: 350, textAlign: 'center',fontFamily: "Spliffs", fontSize: 30}}>{userProperties.username}</Text>
               <View style={[styles.userImageContainer]}>
-                <Image style={styles.userImage} alt='User Image Here' source={chillBear}></Image>
+                <Image style={styles.userImage} alt='User Image Here' source={bearImages[userProperties.bear]}></Image>
               </View>  
             </View>
 
@@ -122,7 +130,7 @@ export default function ProfileScreen() {
             <View style={[{backgroundColor: BackgroundColor},styles.biographySection]}>
               <Text style={{textAlign: 'center'}}> {userProperties.bio} </Text>
             </View>
-            <FriendWheel user={userProperties} toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={toggleFriendModal}></FriendWheel>
+            <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={toggleFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -153,16 +161,16 @@ const styles = StyleSheet.create({
   },
   userImageContainer: {
     //borderWidth: 1,
-    padding: 25,
+    padding: 16,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
   },
   userImage: {
     borderWidth: 1,
-    height: 100,
-    width: 100,
-    borderRadius: '100%',
+    height: 110,
+    width: 110,
+    borderRadius: 100,
   },
   profileHead: {
     //borderWidth: 1,

@@ -4,11 +4,6 @@ import { FontAwesome, } from '@expo/vector-icons';
 
 import Colors from '../../constants/Colors';
 import toggleState from '../../app/(tabs)/profile'
-import polarBear from '../../assets/images/bears/polarBear.jpg';
-import chillBear from '../../assets/images/bears/chillBear.jpg';
-import tongueBear from '../../assets/images/bears/tongueBear.jpg';
-import snowBear from '../../assets/images/bears/snowBear.jpg';
-import broBear from '../../assets/images/bears/broBear.jpg';
 
 interface UserProps {
     fName: string,
@@ -20,7 +15,7 @@ interface UserProps {
   }
 
 
-export default function FriendWheel ({toggleFriendModal, toggleAllFriendsModal, user} : {toggleFriendModal : () => void, toggleAllFriendsModal : () => void, friendModalVisible : boolean, allFriendsModalVisible : boolean, user: UserProps}) {
+export default function FriendWheel ({toggleFriendModal, toggleAllFriendsModal, user, bears, users} : {toggleFriendModal : ({user}: {user: UserProps}) => void, toggleAllFriendsModal : () => void, user: UserProps, bears: any, users: any[],}) {
 
     const colorScheme = useColorScheme();
     const BackgroundColor = (colorScheme == 'light' ? Colors[colorScheme ?? 'light'].modalBackground : Colors[colorScheme ?? 'dark'].modalBackground);
@@ -30,21 +25,11 @@ export default function FriendWheel ({toggleFriendModal, toggleAllFriendsModal, 
         <View style={[{backgroundColor: BackgroundColor}]}>
               <View style={styles.friendsContainer}>
                 <View style={styles.friendsInnerContainer}>
-                  <TouchableOpacity onPress={toggleFriendModal} style={{backgroundColor:'transparent'}}>
-                    <Image style={styles.userImage} alt='User Image Here' source={polarBear}></Image>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={toggleFriendModal} style={{backgroundColor:'transparent'}}>
-                    <Image style={styles.userImage} alt='User Image Here' source={tongueBear}></Image>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={toggleFriendModal} style={{backgroundColor:'transparent'}}>
-                    <Image style={styles.userImage} alt='User Image Here' source={broBear}></Image>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={toggleFriendModal} style={{backgroundColor:'transparent'}}>
-                    <Image style={styles.userImage} alt='User Image Here' source={snowBear}></Image>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={toggleFriendModal} style={{backgroundColor:'transparent'}}>
-                    <Image style={styles.userImage} alt='User Image Here' source={chillBear}></Image>
-                  </TouchableOpacity>
+                  {users.map((user, index) => (
+                    <TouchableOpacity key={index} onPress={() => toggleFriendModal(user)} style={{backgroundColor:'transparent'}}>
+                      <Image style={styles.userImage} alt='User Image Here' source={bears[user.bear]}></Image>
+                    </TouchableOpacity>
+                  ))}
                 </View>
                 <View style={{backgroundColor: 'transparent'}}>
                   <TouchableOpacity onPress={toggleAllFriendsModal} style={{backgroundColor:'transparent'}}>
@@ -84,17 +69,17 @@ const styles = StyleSheet.create({
         height: 36, 
         borderWidth: 1, 
         borderColor: 'white',
-        borderRadius: '60%'
+        borderRadius: 100,
       },
       friendsLinkButton: {
         width: 36, 
         height: 36,
       },
       userImage: {
-        width: 36, 
-        height: 36, 
+        width: 40, 
+        height: 40, 
         borderWidth: 1, 
         borderColor: 'white',
-        borderRadius: '60%'
+        borderRadius: 100,
       }
 });
