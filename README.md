@@ -30,5 +30,3 @@ The Profile tab shows the user's profile information including their name, bio, 
 Tapping the New Post button in the tab bar brings up a page to create a new post. Users can enter the strain name, upload a photo, enter a rating, and write a caption for their thoughts on the strain.
 
 ***
-
-Let me know if you would like me to expand or modify the documentation further! I tried to create basic sections for each of the main pages you described.
