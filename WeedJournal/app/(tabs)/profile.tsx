@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { Text, View, ScrollView, SafeAreaView, TouchableOpacity } from '../../components/Themed';
 import Header from '../../components/Header/Header';
 import ProfileSettings from '../modals/ProfileSettings';
-import { FontAwesome, createMultiStyleIconSet, Entypo } from '@expo/vector-icons';
-import Colors from '../../constants/Colors';
+import { FontAwesome } from '@expo/vector-icons';
 import FriendWheel from '../../components/FriendWheel/FriendWheel';
 import ViewAllFriends from '../modals/VewAllFriends';
 import ViewFriend from '../modals/ViewFriend';
@@ -13,11 +12,13 @@ import chillBear from '../../assets/images/bears/chillBear.jpg';
 import tongueBear from '../../assets/images/bears/tongueBear.jpg';
 import snowBear from '../../assets/images/bears/snowBear.jpg';
 import broBear from '../../assets/images/bears/broBear.jpg';
+import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader';
 
 
 
 export default function ProfileScreen() {
   
+  //Refernce Bear Images Through this object (ex: [bearImages["polarBear"]])
   const bearImages = {
     polarBear,
     chillBear,
@@ -73,40 +74,39 @@ export default function ProfileScreen() {
     bear: "polarBear",
     bio: "Welcome to the Thunderdome"
   })
-  const [friendIndex, setFriendIndex] = useState(0);
   const [settingsModal, setSettingsModal]= useState(false);
   const [friendModal, setFriendModal]= useState(false);
   const [allFriendsModal, setAllFriendsModal]= useState(false);
 
+  //Toggle Settings Modal
   const toggleSettingsModal = () => {
     setSettingsModal((prevState) => !prevState) 
   }
 
+  //Toggle Friends Modal
+  const toggleFriendModal = () => {
+    setFriendModal((prevState) => !prevState);
+  }
+
+  //Opens Friend Modal Using Friend as Prop
   const openFriendModal = (props) => {
     setTempFriend(props);
     toggleFriendModal();
   }
 
-  const toggleFriendModal = () => {
-    setFriendModal((prevState) => !prevState);
-  }
-
+  //Toggle All Friends Modal
   const toggleAllFriendsModal = () => {
     setAllFriendsModal((prevState) => !prevState) 
   }
   
-
-
-
   const colorScheme = useColorScheme();
-  const BackgroundColor = (colorScheme == 'light' ? Colors[colorScheme ?? 'light'].modalBackground : Colors[colorScheme ?? 'dark'].modalBackground);
   const buttonColor = (colorScheme == 'light' ? 'black' : 'white')
 
   return (
     <SafeAreaView style={styles.container}>
       <Header title='Profile' font='PsychoFun'>
-        <TouchableOpacity style={[styles.settingsLink, styles.settingsButton]} onPress={toggleSettingsModal}>
-          <FontAwesome name='gears' color='black' size={24}></FontAwesome>
+        <TouchableOpacity style={[styles.settingsLink, styles.transparentBackground]} onPress={toggleSettingsModal}>
+          <FontAwesome name='gears' color={buttonColor} size={24}></FontAwesome>
         </TouchableOpacity>
       </Header>
       <ProfileSettings visible={settingsModal} toggle={toggleSettingsModal} user={userProperties} ></ProfileSettings>
@@ -115,26 +115,11 @@ export default function ProfileScreen() {
         <ViewAllFriends visible={allFriendsModal} toggle={toggleAllFriendsModal} />
         <ViewFriend visible={friendModal} toggle={toggleFriendModal} user={tempFriend} bearImage={bearImages[tempFriend.bear]}/>
 
-        <View>
-
-            <View style={[{backgroundColor: BackgroundColor}, styles.profileHead]}>
-              <Text style={{ width: 350, textAlign: 'center',fontFamily: "Spliffs", fontSize: 30}}>{userProperties.username}</Text>
-              <View style={[styles.userImageContainer]}>
-                <Image style={styles.userImage} alt='User Image Here' source={bearImages[userProperties.bear]}></Image>
-              </View>  
-            </View>
-
-            <View style={[{backgroundColor: BackgroundColor},styles.profileInfo]}>
-              <View style={[{backgroundColor: BackgroundColor},styles.firstAndLastName]}>
-                <Text>{userProperties.fName} {userProperties.lName}</Text>
-                <Text style={{paddingTop: 8}}>{userProperties.email}</Text>
-              </View>
-            </View>
-            
-            <View style={[{backgroundColor: BackgroundColor},styles.biographySection]}>
-              <Text style={{textAlign: 'center'}}> {userProperties.bio} </Text>
-            </View>
-            <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={openFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
+        <View style={styles.transparentBackground}>
+          <ProfileHeader user={userProperties} bearImage={bearImages[userProperties.bear]}>
+            <Text style={{ width: 350, textAlign: 'center',fontFamily: "Spliffs", fontSize: 30}}>{userProperties.username}</Text>
+          </ProfileHeader>
+          <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={openFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -150,50 +135,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-  settingsButton: {
+  transparentBackground: {
     backgroundColor: 'transparent',
   },
   settingsLink: {
     position: 'absolute',
     right: '8%',
     bottom: '25%',
-  },
-  userImageContainer: {
-    //borderWidth: 1,
-    padding: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'transparent',
-  },
-  userImage: {
-    borderWidth: 1,
-    height: 110,
-    width: 110,
-    borderRadius: 100,
-  },
-  profileHead: {
-    //borderWidth: 1,
-    alignItems: 'center',
-    paddingTop: 10,
-  },
-  firstAndLastName: {
-    //borderWidth: 1,
-    alignItems: 'center',
-    backgroundColor: 'transparent'
-    
-  },
-  profileInfo: {
-    //borderWidth: 1,
-    paddingTop: 8,
-  },
-  biographySection: {
-    paddingTop: 16,
-    alignItems: 'center',
-    paddingHorizontal: 32,
   },
 });

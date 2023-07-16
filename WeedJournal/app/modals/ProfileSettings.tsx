@@ -2,14 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, useColorScheme, TextInput } from 'react-native';
 import React from 'react';
 import Colors from '../../constants/Colors';
-import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Modal } from '../../components/Themed';
-import ModalScreen from '../modal';
 import Header from '../../components/Header/Header';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
-import ProfileScreen from '../(tabs)/profile';
-import CustomTextInput, { BioBox } from '../../components/TextBox/TextBox'
-import TextBox from '../../components/TextBox/TextBox';
+import TextBox from '../../components/Profile/ProfileSettings/TextBox/TextBox';
+import BioBox from '../../components/Profile/ProfileSettings/BioBox/BioBox';
 
 
 
@@ -65,9 +62,9 @@ export default function ProfileSettings({visible, toggle, user}: {visible: boole
               </View>
             </View>
             <View style={[{backgroundColor: backgroundColor}, styles.bioBox]}>
-                <BioBox placeholder='Bio here' value={user.bio}></BioBox>
-              </View>
-            </ScrollView>
+              <BioBox placeholder='Bio here' value={user.bio}></BioBox>
+            </View>
+          </ScrollView>
         </View>
       </SafeAreaView>
       </Modal>

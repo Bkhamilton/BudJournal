@@ -3,7 +3,6 @@ import { Text, View, TouchableOpacity } from '../../components/Themed';
 import { FontAwesome, } from '@expo/vector-icons';
 
 import Colors from '../../constants/Colors';
-import toggleState from '../../app/(tabs)/profile'
 
 interface UserProps {
     fName: string,
@@ -76,8 +75,8 @@ const styles = StyleSheet.create({
         height: 36,
       },
       userImage: {
-        width: 40, 
-        height: 40, 
+        width: 44, 
+        height: 44, 
         borderWidth: 1, 
         borderColor: 'white',
         borderRadius: 100,

@@ -1,20 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, Image,  StyleSheet, useColorScheme } from 'react-native';
-
-import EditScreenInfo from '../../components/EditScreenInfo';
+import { Image, StyleSheet, useColorScheme } from 'react-native';
 import { Modal, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from '../../components/Themed';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 import Header from '../../components/Header/Header';
-import TextBox from '../../components/TextBox/TextBox';
+import TextBox from '../../components/Profile/ProfileSettings/TextBox/TextBox';
 import Colors from '../../constants/Colors';
-import polarBear from '../../assets/images/bears/polarBear.jpg';
-import chillBear from '../../assets/images/bears/chillBear.jpg';
-import tongueBear from '../../assets/images/bears/tongueBear.jpg';
-import snowBear from '../../assets/images/bears/snowBear.jpg';
-import broBear from '../../assets/images/bears/broBear.jpg';
-
-
-
+import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader';
 
 interface UserProps {
     fName: string,
@@ -55,23 +45,10 @@ export default function ViewFriend({visible, toggle, user, bearImage}: {visible:
           </TouchableOpacity>
         </Header>
         <ScrollView style={{backgroundColor: 'transparent'}}>
-            <View style={[{backgroundColor: BackgroundColor}, styles.profileHead]}>
-                <View style={[styles.userImageContainer]}>
-                    <Image style={styles.userImage} alt='User Image Here' source={bearImage}></Image>
-                </View>  
-                </View>
+          <ProfileHeader user={user} bearImage={bearImage}>
 
-                <View style={[{backgroundColor: BackgroundColor},styles.profileInfo]}>
-                <View style={[{backgroundColor: BackgroundColor},styles.firstAndLastName]}>
-                    <Text>{fName} {lName}</Text>
-                    <Text style={{paddingTop: 8}}>{email}</Text>
-                </View>
-                </View>
-                
-                <View style={[{backgroundColor: BackgroundColor},styles.biographySection]}>
-                <Text style={{textAlign: 'center'}}> {bio} </Text>
-            </View>
-          </ScrollView>
+          </ProfileHeader>
+        </ScrollView>
       </View>
     </SafeAreaView>
     </Modal>
