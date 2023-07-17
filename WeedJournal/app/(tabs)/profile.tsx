@@ -109,7 +109,7 @@ export default function ProfileScreen() {
       <ProfileSettings visible={settingsModal} toggle={toggleSettingsModal} user={userProperties} ></ProfileSettings>
       <ColorView style={{ height: Platform.OS === 'ios' ? 40 : 0 }}></ColorView>
       <ColorView style={styles.header}>
-          <Text style={{ fontFamily: 'Spliffs', fontSize: 25, textAlign: 'center' }}>{userProperties.username}</Text>
+          <Text style={{ fontFamily: 'PsychoFun', fontSize: 25, textAlign: 'center' }}>{userProperties.username}</Text>
           <TouchableOpacity style={[styles.settingsLink, styles.transparentBackground]} onPress={toggleSettingsModal}>
             <FontAwesome name='gears' color={buttonColor} size={24}></FontAwesome>
           </TouchableOpacity>

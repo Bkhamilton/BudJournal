@@ -41,6 +41,14 @@ export function Text(props: TextProps) {
   return <DefaultText style={[{ color }, style]} {...otherProps} />;
 }
 
+export function Spliffs(props: TextProps) {
+  const { style, lightColor, darkColor, ...otherProps } = props;
+  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const fontFamily = 'Spliffs';
+
+  return <DefaultText style={[{ color, fontFamily }, style]} {...otherProps} />;
+}
+
 export function SpaceGrotesk(props: TextProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');

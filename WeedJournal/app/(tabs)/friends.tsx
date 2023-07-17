@@ -45,7 +45,7 @@ export default function FriendsScreen() {
 
   return (
     <View style={[styles.container]}>
-      <ColorView style={{ height: Platform.OS === 'ios' ? 40 : 0 }}>
+      <ColorView style={{ height: Platform.OS === 'ios' ? 45 : 0 }}>
 
       </ColorView>
       <ScrollView style={styles.scrollContainer}>
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingHorizontal: 0,
     paddingVertical: 8,
-    paddingTop: Platform.OS === 'ios' ? 15 : 0,
+    paddingTop: Platform.OS === 'ios' ? 10 : 0,
   },
   content: {
     borderWidth: 0,
