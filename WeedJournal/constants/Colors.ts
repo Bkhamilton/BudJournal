@@ -11,7 +11,7 @@ export default {
     tint: tintColorLight,
     modalBackground: '#388E3C',
     tabIconDefault: '#E6E6E6',
-    tabButtonActive: '#A0CCA0',
+    tabButtonActive: '#BDE1BD',
     tabButtonInactive: '#E3E3E3',
     tabIconSelected: tintColorLight,
   },

@@ -11,9 +11,9 @@ export default function NewPostScreen() {
         
       </Header>
       <ScrollView>
-        <Text style={{ textAlign: 'center' }}></Text>
-        <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-        <EditScreenInfo path="app/(tabs)/newPost.tsx" />
+        <View style={styles.content}>
+          <Text style={styles.title}>New Post</Text>
+        </View>
       </ScrollView> 
     </SafeAreaView>
   );
@@ -33,5 +33,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     height: 1,
     width: '100%',
+  },
+  content: {
+    borderWidth: 0,
+    borderRadius: 16,
+    marginVertical: 4,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    gap: 20,
   },
 });
