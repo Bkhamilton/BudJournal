@@ -1,6 +1,6 @@
-import { StyleSheet, Image, useColorScheme } from 'react-native';
+import { StyleSheet, Image, useColorScheme, Platform } from 'react-native';
 import { useState } from 'react';
-import { Text, View, ScrollView, SafeAreaView, TouchableOpacity } from '../../components/Themed';
+import { Text, View, ScrollView, SafeAreaView, TouchableOpacity, ColorView } from '../../components/Themed';
 import Header from '../../components/Header/Header';
 import ProfileSettings from '../modals/ProfileSettings';
 import { FontAwesome } from '@expo/vector-icons';
@@ -14,6 +14,7 @@ import snowBear from '../../assets/images/bears/snowBear.jpg';
 import broBear from '../../assets/images/bears/broBear.jpg';
 import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader';
 import EditScreenInfo from '../../components/EditScreenInfo';
+import React from 'react';
 
 
 
@@ -104,21 +105,21 @@ export default function ProfileScreen() {
   const buttonColor = (colorScheme == 'light' ? 'black' : 'white')
 
   return (
-    <SafeAreaView style={styles.container}>
-
-      <Header title='Profile' font='PsychoFun'>
-        <TouchableOpacity style={[styles.settingsLink, styles.transparentBackground]} onPress={toggleSettingsModal}>
-          <FontAwesome name='gears' color={buttonColor} size={24}></FontAwesome>
-        </TouchableOpacity>
-      </Header>
+    <ColorView style={styles.container}>
       <ProfileSettings visible={settingsModal} toggle={toggleSettingsModal} user={userProperties} ></ProfileSettings>
-      
+      <ColorView style={{ height: Platform.OS === 'ios' ? 40 : 0 }}></ColorView>
+      <ColorView style={styles.header}>
+          <Text style={{ fontFamily: 'Spliffs', fontSize: 25, textAlign: 'center' }}>{userProperties.username}</Text>
+          <TouchableOpacity style={[styles.settingsLink, styles.transparentBackground]} onPress={toggleSettingsModal}>
+            <FontAwesome name='gears' color={buttonColor} size={24}></FontAwesome>
+          </TouchableOpacity>
+      </ColorView>
       <ScrollView>
             <ViewAllFriends visible={allFriendsModal} toggle={toggleAllFriendsModal} />
             <ViewFriend visible={friendModal} toggle={toggleFriendModal} user={tempFriend} bearImage={bearImages[tempFriend.bear]}/>
         <View style={styles.transparentBackground}>
             <ProfileHeader user={userProperties} bearImage={bearImages[userProperties.bear]}>
-              <Text style={{ width: 350, textAlign: 'center',fontFamily: "Spliffs", fontSize: 30}}>{userProperties.username}</Text>
+              
             </ProfileHeader>
           <View style={styles.profileBody}>
           <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={openFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
@@ -136,7 +137,7 @@ export default function ProfileScreen() {
 
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </ColorView>
   );
 }
 
@@ -144,6 +145,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+  },
+  header: {
+    backgroundColor: 'transparent',
+    paddingHorizontal: 16,
+    paddingBottom: 8,
+    paddingTop: 8,
+    borderBottomColor: 'rgba(255,255,255,0.1)',
+    borderBottomWidth: 1,
   },
   title: {
     fontSize: 20,
@@ -155,7 +164,7 @@ const styles = StyleSheet.create({
   settingsLink: {
     position: 'absolute',
     right: '8%',
-    bottom: '25%',
+    bottom: '40%',
   },
   profileBody: {
     marginVertical: '5%',
