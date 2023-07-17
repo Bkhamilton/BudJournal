@@ -15,7 +15,7 @@ export default function RecentEntry({strain, name, rating, size} : RecentEntryPr
         <View id="pic" style={styles.pfp}/>
         <View style={styles.titleContainer}>
             <View id="title">
-                <SpaceGroteskBold style={{ height: '50%' }}>{strain} ({size} oz)</SpaceGroteskBold>
+                <SpaceGroteskBold style={{ height: '50%' }}>{strain}</SpaceGroteskBold>
                 <SpaceGrotesk style={{ height: '50%' }}>{name}</SpaceGrotesk>
             </View>
             <View id="rating" style={styles.ratingContainer}>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     height: 48, 
     width: 48, 
     borderWidth: 1, 
-    borderRadius: '50%',
+    borderRadius: 50,
   },
   titleContainer: {
     flexDirection: 'row', 

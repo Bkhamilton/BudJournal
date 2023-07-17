@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StatusBar, Platform } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View, ScrollView, SafeAreaView } from '../../components/Themed';
@@ -41,7 +41,7 @@ export default function FriendsScreen() {
   addRandomStrains(25);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={[styles.container, {  }]}>
       <ScrollView style={styles.scrollContainer}>
         <View style={styles.header}>
           <Text style={{ fontFamily: 'PsychoFun', fontSize: 24 }}>Friends</Text>
@@ -59,7 +59,7 @@ export default function FriendsScreen() {
           ))}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: 'transparent',
     paddingHorizontal: 16,
-    paddingBottom: 8,
+    paddingBottom: 14,
     borderBottomColor: 'rgba(255,255,255,0.1)',
     borderBottomWidth: 1,
   },
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     paddingHorizontal: 0,
     paddingVertical: 8,
+    paddingTop: Platform.OS === 'ios' ? 55 : 0,
   },
   content: {
     borderWidth: 0,
