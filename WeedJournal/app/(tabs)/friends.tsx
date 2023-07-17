@@ -4,15 +4,18 @@ import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View, ScrollView, SafeAreaView } from '../../components/Themed';
 import Header from '../../components/Header/Header';
 import RecentEntry from '../../components/RecentEntry/RecentEntry';
+import React from 'react';
 
 export default function FriendsScreen() {
   const strains = ["Wedding Cake", "Titty Sprinkles", "Gelato", "Runtz", "Birthday Cake", "4front Legends", "Green Crack", "Church", "8-inch Bagel"];
   const names = ["Jimbo","Paul","James","Terry","Sheila","Bjorn","Sally","Anita","Sam","Derek","Bob","Rob", "Ben", "Kenneth"];
   const sizes = ["1/8", "1/8", "1/8", "1/8", "1/4", "1/4", "1/4", "1/2", "1/2", "1"];
 
-  const entries=[];
+  const entries: {
+    strain: string; name: string; size: string; rating: string; // add rating 
+  }[]=[];
 
-  function addRandomStrains(n) {
+  function addRandomStrains(n: number) {
 
     for(let i = 0; i < n; i++) {
   
@@ -41,7 +44,7 @@ export default function FriendsScreen() {
   addRandomStrains(25);
 
   return (
-    <View style={[styles.container, {  }]}>
+    <View style={[styles.container]}>
       <ScrollView style={styles.scrollContainer}>
         <View style={styles.header}>
           <Text style={{ fontFamily: 'PsychoFun', fontSize: 24 }}>Friends</Text>
