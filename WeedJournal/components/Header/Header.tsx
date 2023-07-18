@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import { Text, View } from '../../components/Themed';
+import { Text, View, ColorView } from '../../components/Themed';
 import { useFonts } from 'expo-font';
 import React from 'react';
 
@@ -27,7 +27,7 @@ export default function Header({ title, font, children }: HeaderProps) {
     }, [fontsLoaded]); 
 
     return (
-        <View style={styles.container}>
+        <ColorView style={styles.container}>
             {fontLoaded ? (
                 <Text style={[styles.title,{height: 32 , fontFamily: font, }]}>{title}</Text> 
             ) : (
@@ -35,7 +35,7 @@ export default function Header({ title, font, children }: HeaderProps) {
             )}
 
             {children}
-        </View>
+        </ColorView>
     );
 }
 

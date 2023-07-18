@@ -4,6 +4,7 @@ import { Text, View, ScrollView, SafeAreaView, ColorView } from '../../component
 import Header from '../../components/Header/Header';
 import RecentEntry from '../../components/RecentEntry/RecentEntry';
 import React from 'react';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 export default function FriendsScreen() {
   const strains = ["Wedding Cake", "Titty Sprinkles", "Gelato", "Runtz", "Birthday Cake", "4front Legends", "Green Crack", "Church", "8-inch Bagel"];
@@ -74,6 +75,16 @@ export default function FriendsScreen() {
   
     translateY.setValue(currentScrollY * 0.5);
   }
+
+  const FriendHeader = () => {
+    return(
+      <View style={{ paddingBottom: 12, paddingTop: 55 }}>
+        <SearchBar/>
+        <Text style={[styles.title, { paddingTop: 6, }]}>Recents</Text>
+      </View>
+    );
+  }
+
   return (
     <View>
       <ColorView style={{ height: Platform.OS === 'ios' ? 48 : 9 }}>
@@ -94,8 +105,8 @@ export default function FriendsScreen() {
             rating={item.rating} 
           />
         )}
-        ListHeaderComponent={() => <Text style={[styles.title, { paddingBottom: 12, paddingTop: 58 }]}>Recents</Text>}
-        ItemSeparatorComponent={() => <View style={{marginVertical: 8, borderWidth: 1, borderColor: 'rgba(0,0,0,0.1)'}} />}
+        ListHeaderComponent={() => <FriendHeader></FriendHeader>}
+        ItemSeparatorComponent={() => <View style={{marginVertical: 10, borderWidth: 1, borderColor: colorScheme == 'light' ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)'}} />}
         onScroll={onScroll}
         scrollEventThrottle={20}
       />

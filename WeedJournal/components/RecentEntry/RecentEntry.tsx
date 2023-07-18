@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, useColorScheme } from 'react-native';
-
-import { Text, TouchableOpacity, View, SpaceGroteskBold, SpaceGrotesk } from '../../components/Themed';
+import { SpaceGrotesk, SpaceGroteskBold } from '../StyledText';
+import { Text, TouchableOpacity, View } from '../../components/Themed';
 
 interface RecentEntryProps {
     strain: string;
@@ -14,14 +14,12 @@ export default function RecentEntry({strain, name, rating, size} : RecentEntryPr
 
   const colorScheme = useColorScheme();
 
-  
-
   return (
     <View style={styles.container}>
-        <View id="pic" style={styles.pfp}/>
+        <View id="pic" style={[styles.pfp, { borderColor: colorScheme == 'light' ? 'black' : 'white' }]}/>
         <View style={styles.titleContainer}>
             <View id="title">
-                <SpaceGroteskBold style={{ height: '50%' }}>{strain}</SpaceGroteskBold>
+                <SpaceGroteskBold style={{ height: '50%', fontSize: 17, }}>{strain}</SpaceGroteskBold>
                 <SpaceGrotesk style={{ height: '50%' }}>{name}</SpaceGrotesk>
             </View>
             <View id="rating" style={styles.ratingContainer}>

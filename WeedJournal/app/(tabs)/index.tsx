@@ -4,6 +4,7 @@ import { StyleSheet, useColorScheme } from 'react-native';
 import EditScreenInfo from '../../components/EditScreenInfo';
 import Header from '../../components/Header/Header';
 import FirstBox from '../../components/Home/FirstBox/FirstBox';
+import SearchBar from '../../components/SearchBar/SearchBar';
 import { Text, View, SafeAreaView, ScrollView } from '../../components/Themed';
 import Colors from '../../constants/Colors';
 
@@ -19,6 +20,9 @@ export default function HomeScreen() {
         
       </Header>
       <ScrollView style={styles.scrollContainer}>
+        <View style={{ paddingHorizontal: 20, }}>
+          <SearchBar/>
+        </View>
         <View style={styles.content}>
           <FirstBox/>
         </View>
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     paddingHorizontal: 0,
-    paddingVertical: 20,
+    paddingVertical: 12,
   },
   title: {
     fontSize: 20,
