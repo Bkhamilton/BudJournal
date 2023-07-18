@@ -1,4 +1,5 @@
-import { StyleSheet } from 'react-native';
+import React from 'react';
+import { StyleSheet, useColorScheme } from 'react-native';
 
 import { Text, TouchableOpacity, View, SpaceGroteskBold, SpaceGrotesk } from '../../components/Themed';
 
@@ -10,6 +11,11 @@ interface RecentEntryProps {
 }
 
 export default function RecentEntry({strain, name, rating, size} : RecentEntryProps) {
+
+  const colorScheme = useColorScheme();
+
+  
+
   return (
     <View style={styles.container}>
         <View id="pic" style={styles.pfp}/>

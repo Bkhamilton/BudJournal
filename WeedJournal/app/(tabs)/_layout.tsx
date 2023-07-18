@@ -5,6 +5,7 @@ import { Image, useColorScheme } from 'react-native';
 import logo from '../../assets/images/cannabis.png';
 
 import Colors from '../../constants/Colors';
+import React from 'react';
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -94,11 +95,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="history"
+        name="inbox"
         options={{
-          title: 'History',
-          href: './history',
-          tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />,
+          title: 'Inbox',
+          href: './inbox',
+          tabBarIcon: ({ color }) => <TabBarIcon name="bell" color={color} />,
+          tabBarLabel: 'Notifications',
           headerShown: false,
         }}
       />

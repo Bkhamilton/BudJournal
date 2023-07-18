@@ -1,3 +1,4 @@
+import React from 'react';
 import { StyleSheet, useColorScheme } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
@@ -14,7 +15,9 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title='Weed Journal' font='PsychoFun'/>
+      <Header title='Weed Journal' font='PsychoFun'>
+        
+      </Header>
       <ScrollView style={styles.scrollContainer}>
         <View style={styles.content}>
           <FirstBox/>

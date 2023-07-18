@@ -1,3 +1,4 @@
+import React from 'react';
 import { StyleSheet, Image, useColorScheme } from 'react-native';
 import { Text, View, SpaceGrotesk, SpaceGroteskBold, Spliffs } from '../../Themed';
 

@@ -3,6 +3,7 @@
  * https://docs.expo.io/guides/color-schemes/
  */
 
+import React from 'react';
 import { Text as DefaultText, useColorScheme, View as DefaultView, TouchableOpacity as DefaultTouchableOpacity,
    SafeAreaView as DefaultSafeAreaView, ScrollView as DefaultScrollView, Modal as DefaultModal } from 'react-native';
 
@@ -96,7 +97,7 @@ export function SafeAreaView(props: SafeAreaViewProps) {
 
 export function ScrollView(props: ScrollViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'colorBackground');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
 
   return <DefaultScrollView style={[{ backgroundColor }, style]} {...otherProps} />;
 }

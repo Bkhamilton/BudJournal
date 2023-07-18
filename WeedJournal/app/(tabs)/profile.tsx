@@ -102,14 +102,26 @@ export default function ProfileScreen() {
   }
   
   const colorScheme = useColorScheme();
-  const buttonColor = (colorScheme == 'light' ? 'black' : 'white')
+  const buttonColor = (colorScheme == 'light' ? 'black' : 'white');
+
+  let fontSize;
+
+  if(userProperties.username.length >= 0 && userProperties.username.length <= 6) {
+    fontSize = 26;
+  } else if(userProperties.username.length >= 7 && userProperties.username.length <= 8) {
+    fontSize = 24;  
+  } else if(userProperties.username.length >= 9 && userProperties.username.length <= 10) {
+    fontSize = 23;
+  } else {
+    fontSize = 20;
+  }
 
   return (
     <ColorView style={styles.container}>
       <ProfileSettings visible={settingsModal} toggle={toggleSettingsModal} user={userProperties} ></ProfileSettings>
-      <ColorView style={{ height: Platform.OS === 'ios' ? 40 : 0 }}></ColorView>
+      <ColorView style={{ height: Platform.OS === 'ios' ? 45 : 9 }}></ColorView>
       <ColorView style={styles.header}>
-          <Text style={{ fontFamily: 'PsychoFun', fontSize: 25, textAlign: 'center' }}>{userProperties.username}</Text>
+          <Text style={{ fontFamily: 'PsychoFun', fontSize: fontSize, textAlign: 'center', height: 34 }}>{userProperties.username}</Text>
           <TouchableOpacity style={[styles.settingsLink, styles.transparentBackground]} onPress={toggleSettingsModal}>
             <FontAwesome name='gears' color={buttonColor} size={24}></FontAwesome>
           </TouchableOpacity>
@@ -149,10 +161,12 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: 'transparent',
     paddingHorizontal: 16,
-    paddingBottom: 8,
-    paddingTop: 8,
+    height: '6%',
     borderBottomColor: 'rgba(255,255,255,0.1)',
     borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
     fontSize: 20,
@@ -163,8 +177,7 @@ const styles = StyleSheet.create({
   },
   settingsLink: {
     position: 'absolute',
-    right: '8%',
-    bottom: '40%',
+    right: '5%',
   },
   profileBody: {
     marginVertical: '5%',
