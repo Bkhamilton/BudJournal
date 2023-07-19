@@ -1,3 +1,4 @@
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, useColorScheme } from 'react-native';
 
@@ -14,10 +15,12 @@ export default function HomeScreen() {
   const lightColorBack = Colors[colorScheme ?? 'light'].colorBackground;
   const darkColorBack = Colors[colorScheme ?? 'dark'].colorBackground;
 
+  const bwColors = colorScheme == 'light' ? "black" : "white";
+
   return (
     <SafeAreaView style={styles.container}>
       <Header title='Weed Journal' font='PsychoFun'>
-        
+        <MaterialCommunityIcons name="book-plus" size={24} color={bwColors} />
       </Header>
       <ScrollView style={styles.scrollContainer}>
         <View style={{ paddingHorizontal: 20, }}>

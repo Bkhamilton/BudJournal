@@ -42,30 +42,6 @@ export function Text(props: TextProps) {
   return <DefaultText style={[{ color }, style]} {...otherProps} />;
 }
 
-export function Spliffs(props: TextProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  const fontFamily = 'Spliffs';
-
-  return <DefaultText style={[{ color, fontFamily }, style]} {...otherProps} />;
-}
-
-export function SpaceGrotesk(props: TextProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  const fontFamily = 'SpaceGrotesk';
-
-  return <DefaultText style={[{ color, fontFamily }, style]} {...otherProps} />;
-}
-
-export function SpaceGroteskBold(props: TextProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  const fontFamily = 'SpaceGrotesk_Bold';
-
-  return <DefaultText style={[{ color, fontFamily }, style]} {...otherProps} />;
-}
-
 export function View(props: ViewProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
@@ -101,6 +77,15 @@ export function ScrollView(props: ScrollViewProps) {
 
   return <DefaultScrollView style={[{ backgroundColor }, style]} {...otherProps} />;
 }
+
+export function ColorScrollView(props: ScrollViewProps) {
+  const { style, lightColor, darkColor, ...otherProps } = props;
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'colorBackground');
+
+  return <DefaultScrollView style={[{ backgroundColor }, style]} {...otherProps} />;
+}
+
+
 export function Modal(props: ModalProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
   const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');

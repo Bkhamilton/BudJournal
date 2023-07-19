@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import RecentEntry from '../../components/RecentEntry/RecentEntry';
 import React from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function FriendsScreen() {
   const strains = ["Wedding Cake", "Titty Sprinkles", "Gelato", "Runtz", "Birthday Cake", "4front Legends", "Green Crack", "Church", "8-inch Bagel"];
@@ -46,6 +47,7 @@ export default function FriendsScreen() {
   const colorScheme = useColorScheme();
 
   const colorBackground = (colorScheme == 'light' ? "#33b533" : "#0C4A11");
+  const bwColors = colorScheme == 'light' ? "black" : "white";
 
   const opacity = new Animated.Value(1);
   const translateY = new Animated.Value(0); 
@@ -87,10 +89,10 @@ export default function FriendsScreen() {
   return (
     <View style={{ flex: 1, }}>
       <ColorView style={{ height: Platform.OS === 'ios' ? 48 : 8 }}>
-
       </ColorView>
-      <Animated.View style={[styles.header, { opacity: opacity, backgroundColor: colorBackground, position: 'absolute', top: Platform.OS === 'ios' ? 47 : 6, zIndex: 1, width: '100%', }]}>
-        <Text style={{ fontFamily: 'PsychoFun', fontSize: 22, height: 32, }}>Buddies</Text> 
+      <Animated.View style={[styles.header, { opacity: opacity, backgroundColor: colorBackground, position: 'absolute', top: Platform.OS === 'ios' ? 47 : 6, zIndex: 1 }]}>
+        <Text style={{ fontFamily: 'PsychoFun', fontSize: 22, height: 32, }}>Buddies</Text>
+        <MaterialCommunityIcons name="book-plus" size={24} color={bwColors} /> 
       </Animated.View>
       <FlatList
         style={{ height: '93.8%', paddingHorizontal: 20 }}
@@ -116,10 +118,14 @@ export default function FriendsScreen() {
 const styles = StyleSheet.create({
   header: {
     height: 44,
+    width: '100%',
     paddingHorizontal: 20,
-    paddingBottom: 3,
+    paddingBottom: 0,
     borderBottomColor: 'rgba(255,255,255,0.1)',
     borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   title: {
     fontSize: 20,

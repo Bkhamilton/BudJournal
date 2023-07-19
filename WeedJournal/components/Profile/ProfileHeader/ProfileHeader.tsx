@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Image, useColorScheme } from 'react-native';
-import { Text, View, SpaceGrotesk, SpaceGroteskBold, Spliffs } from '../../Themed';
+import { SpaceGrotesk, SpaceGroteskBold, Spliffs } from '../../StyledText';
+import { Text, View } from '../../Themed';
 
 export default function ProfileHeader({user, bearImage, children}) {
 

@@ -64,7 +64,7 @@ export default function InboxScreen() {
 
       </ColorView>
       <ColorView style={styles.header}>
-        <Text style={{ fontFamily: 'PsychoFun', fontSize: 25, height: 34 }}>Inbox</Text>
+        <Text style={{ fontFamily: 'PsychoFun', fontSize: 24, height: 32 }}>Inbox</Text>
       </ColorView>
       <FlatList
         style={{ paddingHorizontal: 20, height: '93.6%' }}
@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderBottomColor: 'rgba(255,255,255,0.1)',
     borderBottomWidth: 1,
+    justifyContent: 'center',
   },
   title: {
     fontSize: 20,

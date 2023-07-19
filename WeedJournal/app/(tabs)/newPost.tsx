@@ -1,9 +1,9 @@
 import { StyleSheet, useColorScheme } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View, SafeAreaView, ScrollView } from '../../components/Themed';
+import { Text, View, SafeAreaView, ColorScrollView } from '../../components/Themed';
 import Header from '../../components/Header/Header';
 import React from 'react';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function NewPostScreen() {
   return (
@@ -11,11 +11,32 @@ export default function NewPostScreen() {
       <Header title='New Post' font='PsychoFun'>
         
       </Header>
-      <ScrollView>
+      <ColorScrollView>
         <View style={styles.content}>
-          <Text style={styles.title}>New Post</Text>
+          <Text style={styles.title}>Strain Name</Text>
         </View>
-      </ScrollView> 
+        <View style={styles.content}>
+          <Text style={styles.title}>THC Type</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.title}>Indica/Sativa/Hybrid</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.title}>THC%</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.title}>Location</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.title}>Quantity</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.title}>Rating</Text>
+        </View>
+        <View style={styles.content}>
+          <Text style={styles.title}>Review</Text>
+        </View>
+      </ColorScrollView> 
     </SafeAreaView>
   );
 }
@@ -36,11 +57,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   content: {
-    borderWidth: 0,
-    borderRadius: 16,
-    marginVertical: 4,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    gap: 20,
   },
 });
