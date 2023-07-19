@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, useColorScheme, TextInput } from 'react-native';
 import React, { useState } from 'react';
 import Colors from '../../constants/Colors';
-import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Modal } from '../../components/Themed';
+import { Text, View, TouchableOpacity, SafeAreaView, ScrollView, Modal, ColorView } from '../../components/Themed';
 import Header from '../../components/Header/Header';
 import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 import TextBox from '../../components/TextBox/TextBox';
@@ -55,7 +55,7 @@ export default function ProfileSettings({visible, toggle, user}: {visible: boole
           <ScrollView>
             <View style={[ styles.scrollView]}>
 
-              <View style={[ styles.top, {shadowColor: '#121212'}]}>
+              <ColorView style={[ styles.top, {shadowColor: '#121212'}]}>
                 <View style={[ styles.leftBox]}>
                   <TouchableOpacity style={[styles.insertPhotoButton, {borderColor: buttonColor}]}>
                     <MaterialCommunityIcons color={buttonColor} name='image-area' size={125}/>
@@ -70,12 +70,12 @@ export default function ProfileSettings({visible, toggle, user}: {visible: boole
                   <Text>Last Name</Text>
                   <TextBox placeholder={curUser.lName} property='lName' curUserProperty={curUser}/>
                 </View>
-              </View>
+              </ColorView>
             </View>
 
-            <View style={[styles.middle, {shadowColor: '#121212'}]}>
+            <ColorView style={[styles.middle, {shadowColor: '#121212'}]}>
               <BioBox placeholder={curUser.bio} curUserProperty={curUser}></BioBox>
-            </View>
+            </ColorView>
 
           </ScrollView>
         </View>

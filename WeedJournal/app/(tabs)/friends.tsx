@@ -108,7 +108,7 @@ export default function FriendsScreen() {
         ListHeaderComponent={() => <FriendHeader></FriendHeader>}
         ItemSeparatorComponent={() => <View style={{marginVertical: 10, borderWidth: 1, borderColor: colorScheme == 'light' ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)'}} />}
         onScroll={onScroll}
-        scrollEventThrottle={20}
+        scrollEventThrottle={35}
       />
     </View>
   );

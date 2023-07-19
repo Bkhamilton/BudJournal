@@ -73,6 +73,10 @@ const styles = StyleSheet.create({
       paddingHorizontal: 15,
       borderWidth: 2,
       top: 120,
+      borderBottomWidth: 0,
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0,
+      
       
     },
     title: {
