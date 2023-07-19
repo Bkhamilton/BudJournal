@@ -33,34 +33,44 @@ export default function ProfileScreen() {
     fName: 'Kenneth',
     lName: "Sullivan", 
     username: "Vmaxman", 
+    followers: 510,
+    following: 384,
     email: 'kenny.sull18@gmail.com',
     bear: 'polarBear', 
     bio: '1, 2, 3, and to the 4, ken doggy dog and benjamin is at the door. ready to make an entrance so back on up, cause you know we bout to code shit up.'},
     {
       fName: 'Ben', 
       lName: "Hamilton", 
-      username: "benkhamilton", 
+      username: "benkhamilton",
+      followers: 510,
+      following: 404, 
       email: 'bkhamilton310@gmail.com',
       bear: 'chillBear', 
       bio: "Who are you talking to you right now? Who is it you think you see? Do you know how much I make in a year? I mean, even if I told you, you wouldnt believe it."
     }, {
       fName: 'Todd', 
       lName: "Furple", 
-      username: "CrackleSpack", 
+      username: "CrackleSpack",
+      followers: 209,
+      following: 842,  
       email: 'tfurple@gmail.com', 
       bear: 'tongueBear',
       bio: 'Do you know what would happen if I suddenly stopped going into work? A business, big enough that it could be listed on the NASDAQ goes belly up, disappears, it CEASES TO EXIST without me.'
     }, {
       fName: 'Leif', 
       lName: "Erickson", 
-      username: "LeifTheCopySpleef", 
+      username: "LeifTheCopySpleef",
+      followers: 397,
+      following: 590,  
       email: 'leif.erikson_day@gmail.com', 
       bear: 'broBear',
       bio: 'No, you clearly dont know who youre talking to. So let me clue you in. I am not in Danger, Skylar. I AM the Danger. A guy opens his door and gets shot and you think that of me? No'
     }, {
       fName: 'Inosuke', 
       lName: "Hashibura", 
-      username: "lordInosuke", 
+      username: "lordInosuke",
+      followers: 200,
+      following: 10,  
       email: 'lordInosuke@gmail.com', 
       bear: 'snowBear',
       bio: 'I am the one who knocks!!'
@@ -72,6 +82,8 @@ export default function ProfileScreen() {
     fName: "First",
     lName: "Last",
     username: "Uuser",
+    followers: 1,
+    following: 1, 
     email: "eep@ap.com",
     bear: "polarBear",
     bio: "Welcome to the Thunderdome"

@@ -4,7 +4,7 @@ import { Text, View, SpaceGrotesk, SpaceGroteskBold, Spliffs } from '../../Theme
 
 export default function ProfileHeader({user, bearImage, children}) {
 
-    const {fName, lName, username, email, bear, bio} = user;
+    const {fName, lName, username, following, followers, email, bear, bio} = user;
 
     const colorScheme = useColorScheme();
 
@@ -16,7 +16,7 @@ export default function ProfileHeader({user, bearImage, children}) {
             <View style={[{backgroundColor: 'transparent'}, styles.profileHead]}>
               <View>
                 <View style={{ alignItems: 'center', }}>
-                  <SpaceGroteskBold>100</SpaceGroteskBold>
+                  <SpaceGroteskBold>{followers}</SpaceGroteskBold>
                   <View style={{ width: '100%', borderBottomWidth: 1, borderColor: bwColors, }}/>
                   <SpaceGrotesk>Followers</SpaceGrotesk>
                 </View>
@@ -25,7 +25,7 @@ export default function ProfileHeader({user, bearImage, children}) {
                 <Image style={styles.userImage} alt='User Image Here' source={bearImage}></Image>
               </View>
               <View style={{ alignItems: 'center', }}>
-                  <SpaceGroteskBold>100</SpaceGroteskBold>
+                  <SpaceGroteskBold>{following}</SpaceGroteskBold>
                   <View style={{ width: '100%', borderBottomWidth: 1, borderColor: bwColors, }}/>
                   <SpaceGrotesk>Following</SpaceGrotesk>
               </View>  

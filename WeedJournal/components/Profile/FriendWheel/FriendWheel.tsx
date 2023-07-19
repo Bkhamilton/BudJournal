@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity, ColorView } from '../../Themed';
 import { FontAwesome, } from '@expo/vector-icons';
 
 import Colors from '../../../constants/Colors';
+import React from 'react';
 
 interface UserProps {
     fName: string,
