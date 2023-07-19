@@ -35,13 +35,14 @@ export default function NewPostScreen() {
         <View style={styles.content}>
           <Text style={styles.title}>Strain Name</Text>
         </View>
-        <View style={styles.content}>
-          <Text style={styles.title}>THC Type</Text>
-        </View>
         <ColorView style={{ marginTop: 8, paddingVertical: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-          <ColorView style={{ paddingHorizontal: 20, }}>
-            <SpaceGroteskBold style={styles.title}>Type</SpaceGroteskBold>
-          </ColorView>
+          <SpaceGroteskBold style={[styles.title, { paddingHorizontal: 8, }]}>THC Type</SpaceGroteskBold>
+          <TouchableOpacity style={styles.typeButton}>
+              <SpaceGrotesk style={{ fontSize: 20, }}>Flower</SpaceGrotesk>
+          </TouchableOpacity>
+        </ColorView>
+        <ColorView style={{ marginTop: 8, paddingVertical: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
+          <SpaceGroteskBold style={[styles.title, { paddingHorizontal: 8 }]}>Type</SpaceGroteskBold>
           <ColorView style={{ flexDirection: 'row' }}>
             <TouchableOpacity style={[styles.typeButton, { backgroundColor: type==1 ? activeBtnColor : inactiveBtnColor }]} onPress={() => handleType(1)}>
               <SpaceGrotesk style={{ fontSize: 20 }}>Indica</SpaceGrotesk>
