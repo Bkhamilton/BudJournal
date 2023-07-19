@@ -82,7 +82,7 @@ export function ColorView(props: ViewProps) {
 
 export function TouchableOpacity(props: TouchableOpacityProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'tabIconDefault');
+  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
   const borderColor = useThemeColor({ light: lightColor, dark: darkColor }, 'borderColor');
 
   return <DefaultTouchableOpacity style={[{ backgroundColor, borderColor }, style]} {...otherProps} />;

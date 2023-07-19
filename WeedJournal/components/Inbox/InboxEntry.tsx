@@ -1,22 +1,27 @@
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { StyleSheet, useColorScheme, Image } from 'react-native';
 
 import { Text, TouchableOpacity, View, SpaceGroteskBold, SpaceGrotesk } from '../../components/Themed';
 
 interface InboxEntryProps {
     title: string;
     subTitle: string;
+    pfp: any;
     totalNotifs: number;
     type: string;
     date: string;
     time: string;
 }
 
-export default function InboxEntry( notif : InboxEntryProps) {
+export default function InboxEntry( notif : InboxEntryProps, image) {
 
   const colorScheme = useColorScheme();
 
-  const { title, subTitle, totalNotifs, type, date, time } = notif;
+  const bwColors = colorScheme == 'light' ? 'black' : 'white';
+  const wbColors = colorScheme == 'light' ? 'black' : 'white';
+
+  const { title, subTitle, pfp, totalNotifs, type, date, time } = notif;
 
   const truncateText = (text: string, length: number) => {
     if (text.length <= length) {
@@ -26,12 +31,14 @@ export default function InboxEntry( notif : InboxEntryProps) {
     return text.slice(0, length -1) + "...";
   }
 
+  //Chooses Display on Right Side of Screen
   const SideDisplay = () => {
-
     if(type === 'system') {
         if(totalNotifs > 0) {
-          return <View style={{ paddingHorizontal: 8, paddingVertical: 2, left: 6, borderRadius: 8, backgroundColor: 'green' }}><SpaceGrotesk>{totalNotifs}</SpaceGrotesk></View>;
-        } 
+          return <View style={{ paddingHorizontal: 8, paddingVertical: 2, left: 6, borderRadius: 8, backgroundColor: 'green', }}><SpaceGrotesk>{totalNotifs}</SpaceGrotesk></View>;
+        } else {
+          return null;
+        }
       } else if(type === 'user' && totalNotifs > 0) {
         return <View style={{ width: 10, height: 10, borderRadius: 50, backgroundColor: 'green', }} />
       }
@@ -39,9 +46,34 @@ export default function InboxEntry( notif : InboxEntryProps) {
       return <SpaceGrotesk>{date}</SpaceGrotesk>;
   }
 
+  //Chooses What to display for PFP
+  const ProfilePic = () => {
+    if(type === 'system') {
+      if(title === "New Followers") {
+        return (
+          <View style={{ height: 48, width: 48, borderRadius: 50, borderWidth: 1, backgroundColor: '#08320B', borderColor: wbColors, justifyContent: 'center', alignItems: 'center', }}>
+            <Ionicons name="people" size={24} color={bwColors}></Ionicons>
+          </View>);
+      } else {
+        return (
+          <View style={{ height: 48, width: 48, borderRadius: 50, borderWidth: 1, backgroundColor: 'green', borderColor: wbColors, justifyContent: 'center', alignItems: 'center', }}>
+            <FontAwesome name="bell" size={24} color={bwColors}></FontAwesome>
+          </View>);
+      }
+    } else {
+      return (
+      <View style={{ height: 48, width: 48, borderRadius: 50, borderColor: wbColors }}>
+        <Image
+          style={{ height: 48, width: 48, borderRadius: 50 }}
+          source={pfp}
+        />
+      </View>);
+    }
+  }
+
   return (
-    <View style={styles.container}>
-        <View id="pic" style={[styles.pfp, { borderColor: colorScheme == 'light' ? 'black' : 'white' }]}/>
+    <TouchableOpacity style={styles.container}>
+        <ProfilePic/>
         <View style={styles.titleContainer}>
             <View id="title">
                 <SpaceGroteskBold style={{ height: '50%', fontSize: 17 }}>{title}</SpaceGroteskBold>
@@ -51,7 +83,7 @@ export default function InboxEntry( notif : InboxEntryProps) {
                 <SideDisplay/>
             </View>
         </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -65,7 +97,6 @@ const styles = StyleSheet.create({
   pfp: {
     height: 48, 
     width: 48, 
-    borderWidth: 1, 
     borderRadius: 50,
   },
   titleContainer: {
