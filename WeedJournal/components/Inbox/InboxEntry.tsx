@@ -22,6 +22,8 @@ export default function InboxEntry( notif : InboxEntryProps) {
   const bwColors = colorScheme == 'light' ? 'black' : 'white';
   const wbColors = colorScheme == 'light' ? 'black' : 'white';
 
+  const greens = colorScheme == 'light' ? '#388E3C' : 'green';
+
   const { title, subTitle, pfp, totalNotifs, type, date, time } = notif;
 
   const truncateText = (text: string, length: number) => {
@@ -36,12 +38,12 @@ export default function InboxEntry( notif : InboxEntryProps) {
   const SideDisplay = () => {
     if(type === 'system') {
         if(totalNotifs > 0) {
-          return <View style={{ paddingHorizontal: 8, paddingVertical: 2, left: 6, borderRadius: 8, backgroundColor: 'green', }}><SpaceGrotesk>{totalNotifs}</SpaceGrotesk></View>;
+          return <View style={{ paddingHorizontal: 8, paddingVertical: 2, left: 6, borderRadius: 8, backgroundColor: greens, }}><SpaceGrotesk>{totalNotifs}</SpaceGrotesk></View>;
         } else {
           return null;
         }
       } else if(type === 'user' && totalNotifs > 0) {
-        return <View style={{ width: 10, height: 10, borderRadius: 50, backgroundColor: 'green', }} />
+        return <View style={{ width: 10, height: 10, borderRadius: 50, backgroundColor: greens, }} />
       }
     
       return <SpaceGrotesk>{date}</SpaceGrotesk>;
@@ -53,7 +55,7 @@ export default function InboxEntry( notif : InboxEntryProps) {
       if(title === "New Followers") {
         return (
           <View style={{ height: 48, width: 48, borderRadius: 50, borderWidth: 1, backgroundColor: 'green', borderColor: wbColors, justifyContent: 'center', alignItems: 'center', }}>
-            <Ionicons name="people" size={26} color={bwColors}></Ionicons>
+            <Ionicons name="people" size={26} color='white'></Ionicons>
           </View>);
       } else {
         return (

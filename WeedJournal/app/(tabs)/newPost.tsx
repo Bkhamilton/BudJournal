@@ -3,6 +3,7 @@ import { StyleSheet, useColorScheme } from 'react-native';
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View, SafeAreaView, ScrollView } from '../../components/Themed';
 import Header from '../../components/Header/Header';
+import React from 'react';
 
 export default function NewPostScreen() {
   return (
