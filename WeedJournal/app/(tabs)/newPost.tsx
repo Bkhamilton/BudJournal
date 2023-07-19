@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
 import { SpaceGrotesk, SpaceGroteskBold } from '../../components/StyledText';
+import { PrivateValueStore } from '@react-navigation/native';
 
 export default function NewPostScreen() {
 
@@ -14,13 +15,24 @@ export default function NewPostScreen() {
   const activeBtnColor = Colors[colorScheme ?? 'light'].colorButtonActive;
   const inactiveBtnColor = Colors[colorScheme ?? 'dark'].colorButtonInactive;
 
+  const categories = ["Flower", "Pre-Roll", "Cart", "Dab", "Edible", "Drinks", "Other"]
+
   const [type, setType] = useState(0);
+  const [category, setCategory] = useState(0);
   
   const handleType = (newType) => {
     if (type == newType) {
       setType(0);
     } else {
       setType(newType);
+    }
+  }
+
+  const handleCategory = () => {
+    if (category == categories.length - 1) {
+      setCategory(0);
+    } else {
+      setCategory((prevState) => prevState + 1);
     }
   }
 
@@ -35,13 +47,13 @@ export default function NewPostScreen() {
         <View style={styles.content}>
           <Text style={styles.title}>Strain Name</Text>
         </View>
-        <ColorView style={{ marginTop: 8, paddingVertical: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
+        <ColorView style={{ marginTop: 8, paddingTop: 10, paddingBottom: 2, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
           <SpaceGroteskBold style={[styles.title, { paddingHorizontal: 8, }]}>THC Type</SpaceGroteskBold>
-          <TouchableOpacity style={styles.typeButton}>
-              <SpaceGrotesk style={{ fontSize: 20, }}>Flower</SpaceGrotesk>
+          <TouchableOpacity style={[styles.typeButton, { backgroundColor: inactiveBtnColor }]} onPress={handleCategory}>
+              <SpaceGrotesk style={{ fontSize: 20, }}>{categories[category]}</SpaceGrotesk>
           </TouchableOpacity>
         </ColorView>
-        <ColorView style={{ marginTop: 8, paddingVertical: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
+        <ColorView style={{ marginTop: 8, paddingTop: 2, paddingBottom: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
           <SpaceGroteskBold style={[styles.title, { paddingHorizontal: 8 }]}>Type</SpaceGroteskBold>
           <ColorView style={{ flexDirection: 'row' }}>
             <TouchableOpacity style={[styles.typeButton, { backgroundColor: type==1 ? activeBtnColor : inactiveBtnColor }]} onPress={() => handleType(1)}>
