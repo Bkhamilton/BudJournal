@@ -86,11 +86,11 @@ export default function FriendsScreen() {
   }
 
   return (
-    <View>
-      <ColorView style={{ height: Platform.OS === 'ios' ? 48 : 9 }}>
+    <View style={{ flex: 1, }}>
+      <ColorView style={{ height: Platform.OS === 'ios' ? 48 : 8 }}>
 
       </ColorView>
-      <Animated.View style={[styles.header, { opacity: opacity, backgroundColor: colorBackground, position: 'absolute', top: Platform.OS === 'ios' ? 47 : 0, zIndex: 1, width: '100%', }]}>
+      <Animated.View style={[styles.header, { opacity: opacity, backgroundColor: colorBackground, position: 'absolute', top: Platform.OS === 'ios' ? 47 : 6, zIndex: 1, width: '100%', }]}>
         <Text style={{ fontFamily: 'PsychoFun', fontSize: 22, height: 32, }}>Friends</Text> 
       </Animated.View>
       <FlatList
