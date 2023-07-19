@@ -6,7 +6,7 @@ export default {
     text: '#000',
     background: '#fff',
     borderColor: '#000',
-    colorBackground: '#70CD74',
+    colorBackground: '#33b533',
     modalColorBackground: "#fff",
     tint: tintColorLight,
     modalBackground: '#70CD74',

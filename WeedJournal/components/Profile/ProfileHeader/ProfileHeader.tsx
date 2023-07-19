@@ -5,13 +5,29 @@ import { Text, View, SpaceGrotesk, SpaceGroteskBold, Spliffs } from '../../Theme
 export default function ProfileHeader({user, bearImage, children}) {
 
     const {fName, lName, username, email, bear, bio} = user;
-    
+
+    const colorScheme = useColorScheme();
+
+    const bwColors = colorScheme == 'light' ? 'black' : 'white';
+     
     return(
         <View style={{ backgroundColor: 'transparent' }}>
+          {children}
             <View style={[{backgroundColor: 'transparent'}, styles.profileHead]}>
-              {children}
+              <View>
+                <View style={{ alignItems: 'center', }}>
+                  <SpaceGroteskBold>100</SpaceGroteskBold>
+                  <View style={{ width: '100%', borderBottomWidth: 1, borderColor: bwColors, }}/>
+                  <SpaceGrotesk>Followers</SpaceGrotesk>
+                </View>
+              </View>
               <View style={[styles.userImageContainer]}>
                 <Image style={styles.userImage} alt='User Image Here' source={bearImage}></Image>
+              </View>
+              <View style={{ alignItems: 'center', }}>
+                  <SpaceGroteskBold>100</SpaceGroteskBold>
+                  <View style={{ width: '100%', borderBottomWidth: 1, borderColor: bwColors, }}/>
+                  <SpaceGrotesk>Following</SpaceGrotesk>
               </View>  
             </View>
 
@@ -31,7 +47,7 @@ export default function ProfileHeader({user, bearImage, children}) {
 
 const styles = StyleSheet.create({
   userImageContainer: {
-    padding: 16,
+    padding: 12,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
@@ -44,6 +60,13 @@ const styles = StyleSheet.create({
   profileHead: {
     alignItems: 'center',
     paddingTop: 10,
+    paddingHorizontal: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignContent: 'center',
+  },
+  followView: {
+    alignItems: 'center',
   },
   firstAndLastName: {
     alignItems: 'center',

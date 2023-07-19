@@ -45,7 +45,7 @@ export default function FriendsScreen() {
 
   const colorScheme = useColorScheme();
 
-  const colorBackground = (colorScheme == 'light' ? "#388E3C" : "#0C4A11")
+  const colorBackground = (colorScheme == 'light' ? "#33b533" : "#0C4A11");
 
   const opacity = new Animated.Value(1);
   const translateY = new Animated.Value(0); 
@@ -78,9 +78,8 @@ export default function FriendsScreen() {
 
   const FriendHeader = () => {
     return(
-      <View style={{ paddingBottom: 12, paddingTop: 55 }}>
+      <View style={{ paddingBottom: 16, paddingTop: 55 }}>
         <SearchBar/>
-        <Text style={[styles.title, { paddingTop: 6, }]}>Recents</Text>
       </View>
     );
   }
@@ -91,7 +90,7 @@ export default function FriendsScreen() {
 
       </ColorView>
       <Animated.View style={[styles.header, { opacity: opacity, backgroundColor: colorBackground, position: 'absolute', top: Platform.OS === 'ios' ? 47 : 6, zIndex: 1, width: '100%', }]}>
-        <Text style={{ fontFamily: 'PsychoFun', fontSize: 22, height: 32, }}>Friends</Text> 
+        <Text style={{ fontFamily: 'PsychoFun', fontSize: 22, height: 32, }}>Buddies</Text> 
       </Animated.View>
       <FlatList
         style={{ height: '93.8%', paddingHorizontal: 20 }}
