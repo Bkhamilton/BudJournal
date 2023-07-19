@@ -133,18 +133,33 @@ export default function ProfileScreen() {
             <ProfileHeader user={userProperties} bearImage={bearImages[userProperties.bear]}>
               
             </ProfileHeader>
+
           <View style={styles.profileBody}>
           <FriendWheel toggleAllFriendsModal={toggleAllFriendsModal} toggleFriendModal={openFriendModal} user={userProperties} bears={bearImages} users={users}></FriendWheel>
+              <ColorView style={styles.favoritesPanel}>
+                <ColorView style={styles.contentPanel} >
+                  <Text style={styles.title}>Methods</Text>
+                  
+                </ColorView>
+              </ColorView>
+
+              <View style={styles.recentsHeader}>
+                <Text style={styles.title}>All Posts</Text>
+                <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+              </View>
+              <View style={styles.postBlock}>
               <View style={styles.panels}>
-                <View style={styles.contentPanel} >
-                  <Text style={styles.title}>Favorites</Text>
-                </View>
+                  <View style={styles.contentPanel}>
+                        
+                  </View>
               </View>
               <View style={styles.panels}>
                   <View style={styles.contentPanel}>
-                        <Text style={styles.title}>Recent Journal Entries</Text>
+                        
                   </View>
               </View>
+              </View>
+              
           </View>
 
         </View>
@@ -168,9 +183,25 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  separator: {
+    marginVertical: 10,
+    height: 1,
+    width: '70%',
+    
+  },
+  recentsHeader: {
+    width: '100%',
+    alignItems: 'center'
+  },
+  postBlock: {
+    flexDirection: 'column',
+
+    marginHorizontal: '5%'
+  },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   transparentBackground: {
     backgroundColor: 'transparent',
@@ -184,13 +215,24 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     gap: 20,
   },
-  panels: {
+  favoritesPanel: {
     flexDirection: 'column',
     justifyContent: 'space-between',
     borderWidth: 2,
     width: '90%',
     marginHorizontal: '5%',
     borderRadius: 32,
+    shadowOffset: {width: -8, height: 8},
+    shadowOpacity: 0.6,
+    shadowRadius: 3
+  },
+  panels: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    borderWidth: 2,
+    width: '90%',
+    marginHorizontal: '5%',
+    borderRadius: 8,
     shadowOffset: {width: -8, height: 8},
     shadowOpacity: 0.6,
     shadowRadius: 3

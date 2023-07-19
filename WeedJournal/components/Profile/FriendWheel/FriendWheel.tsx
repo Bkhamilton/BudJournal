@@ -1,5 +1,5 @@
 import { StyleSheet, Image, useColorScheme } from 'react-native';
-import { Text, View, TouchableOpacity } from '../../Themed';
+import { Text, View, TouchableOpacity, ColorView } from '../../Themed';
 import { FontAwesome, } from '@expo/vector-icons';
 
 import Colors from '../../../constants/Colors';
@@ -21,21 +21,21 @@ export default function FriendWheel ({toggleFriendModal, toggleAllFriendsModal, 
     const buttonColor = (colorScheme == 'light' ? 'black' : 'white')
 
     return (
-        <View style={[{backgroundColor: BackgroundColor}]}>
-              <View style={styles.friendsContainer}>
-                <View style={styles.friendsInnerContainer}>
+        <View style={[{backgroundColor: 'transparent'}]}>
+              <ColorView style={[styles.friendsContainer]}>
+                <ColorView style={[styles.friendsInnerContainer]}>
                   {users.map((curUser, index) => (
                     <TouchableOpacity key={index} onPress={() => toggleFriendModal(curUser)} style={{backgroundColor:'transparent'}}>
                       <Image style={styles.userImage} alt='User Image Here' source={bears[curUser.bear]}></Image>
                     </TouchableOpacity>
                   ))}
-                </View>
+                </ColorView>
                 <View style={{backgroundColor: 'transparent'}}>
                   <TouchableOpacity onPress={toggleAllFriendsModal} style={{backgroundColor:'transparent'}}>
                     <FontAwesome name='caret-right' size={36} color={buttonColor} style={styles.friendsLinkButton}/>
                   </TouchableOpacity>
                 </View>
-            </View>
+            </ColorView>
         </View>
     );
 }
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         marginVertical: '5%',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        alignItems: 'center'
+        alignItems: 'center',
       },
       friendsButton: { 
         width: 36, 

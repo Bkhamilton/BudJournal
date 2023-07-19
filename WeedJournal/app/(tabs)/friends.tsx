@@ -97,7 +97,7 @@ export default function FriendsScreen() {
         ListHeaderComponent={() => <Text style={[styles.title, { paddingBottom: 12, paddingTop: 58 }]}>Recents</Text>}
         ItemSeparatorComponent={() => <View style={{marginVertical: 8, borderWidth: 1, borderColor: 'rgba(0,0,0,0.1)'}} />}
         onScroll={onScroll}
-        scrollEventThrottle={20}
+        scrollEventThrottle={35}
       />
     </View>
   );
