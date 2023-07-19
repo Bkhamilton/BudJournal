@@ -1,8 +1,9 @@
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, useColorScheme, Image } from 'react-native';
-
-import { Text, TouchableOpacity, View, SpaceGroteskBold, SpaceGrotesk } from '../../components/Themed';
+import { SpaceGrotesk, SpaceGroteskBold } from '../StyledText';
+import { Text, TouchableOpacity, View } from '../../components/Themed';
+import icon from '../../assets/images/cannabisWhite.png';
 
 interface InboxEntryProps {
     title: string;
@@ -14,7 +15,7 @@ interface InboxEntryProps {
     time: string;
 }
 
-export default function InboxEntry( notif : InboxEntryProps, image) {
+export default function InboxEntry( notif : InboxEntryProps) {
 
   const colorScheme = useColorScheme();
 
@@ -51,13 +52,16 @@ export default function InboxEntry( notif : InboxEntryProps, image) {
     if(type === 'system') {
       if(title === "New Followers") {
         return (
-          <View style={{ height: 48, width: 48, borderRadius: 50, borderWidth: 1, backgroundColor: '#08320B', borderColor: wbColors, justifyContent: 'center', alignItems: 'center', }}>
-            <Ionicons name="people" size={24} color={bwColors}></Ionicons>
+          <View style={{ height: 48, width: 48, borderRadius: 50, borderWidth: 1, backgroundColor: 'green', borderColor: wbColors, justifyContent: 'center', alignItems: 'center', }}>
+            <Ionicons name="people" size={26} color={bwColors}></Ionicons>
           </View>);
       } else {
         return (
-          <View style={{ height: 48, width: 48, borderRadius: 50, borderWidth: 1, backgroundColor: 'green', borderColor: wbColors, justifyContent: 'center', alignItems: 'center', }}>
-            <FontAwesome name="bell" size={24} color={bwColors}></FontAwesome>
+          <View style={{ height: 48, width: 48, borderRadius: 50, borderWidth: 1, backgroundColor: '#08320B', borderColor: wbColors, justifyContent: 'center', alignItems: 'center', }}>
+            <Image
+              style={{ width: 28, height: 28 }}
+              source={icon}
+            />
           </View>);
       }
     } else {
