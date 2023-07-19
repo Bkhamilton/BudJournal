@@ -98,6 +98,6 @@ const styles = StyleSheet.create({
   typeButton: {
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 8,
   }
 });
