@@ -14,7 +14,7 @@ export default {
     tabButtonActive: '#BDE1BD',
     tabButtonInactive: '#E3E3E3',
     tabIconSelected: tintColorLight,
-    colorButtonActive: '#4dbf4d',
+    colorButtonActive: '#139F13',
     colorButtonInactive: '#5EE75E',
   },
   dark: {
