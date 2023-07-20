@@ -3,6 +3,7 @@ import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View, ScrollView, SafeAreaView, ColorView } from '../../components/Themed';
 import Header from '../../components/Header/Header';
 import RecentEntry from '../../components/RecentEntry/RecentEntry';
+import { RateNode, ReviewNode } from '../../components/Feed/PostNode/PostNode';
 import React from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -86,6 +87,14 @@ export default function FriendsScreen() {
     );
   }
 
+  const DisplayNode = (post) => {
+    const {post: innerPost} = post;
+
+    const nodes = [RateNode, ReviewNode];
+    const Node = nodes[Math.floor(Math.random() * nodes.length)];
+    return <Node post={innerPost}/>;
+  }
+
   return (
     <View style={{ flex: 1, }}>
       <ColorView style={{ height: Platform.OS === 'ios' ? 48 : 8 }}>
@@ -99,11 +108,8 @@ export default function FriendsScreen() {
         data={entries}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}) => (
-          <RecentEntry 
-            strain={item.strain}
-            name={item.name}  
-            size={item.size}
-            rating={item.rating} 
+          <DisplayNode 
+            post={item}
           />
         )}
         ListHeaderComponent={() => <FriendHeader></FriendHeader>}

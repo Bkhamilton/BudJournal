@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, useColorScheme } from 'react-native';
 import { SpaceGrotesk, SpaceGroteskBold } from '../StyledText';
-import { Text, TouchableOpacity, View } from '../../components/Themed';
+import { Text, TouchableOpacity, View } from '../Themed';
 
 interface RecentEntryProps {
     strain: string;

@@ -15,7 +15,7 @@ export default function NewPostScreen() {
   const activeBtnColor = Colors[colorScheme ?? 'light'].colorButtonActive;
   const inactiveBtnColor = Colors[colorScheme ?? 'dark'].colorButtonInactive;
 
-  const categories = ["Flower", "Pre-Roll", "Cart", "Dab", "Edible", "Drinks", "Other"]
+  const categories = ["Flower", "Pre-Roll", "Cart", "Dab", "Edible", "Drink", "Other"]
 
   const [type, setType] = useState(0);
   const [category, setCategory] = useState(0);

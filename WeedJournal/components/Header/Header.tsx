@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import { Text, View, ColorView } from '../../components/Themed';
+import { Text, View, ColorView } from '../Themed';
 import { useFonts } from 'expo-font';
 import React from 'react';
 

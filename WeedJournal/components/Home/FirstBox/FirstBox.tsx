@@ -1,6 +1,7 @@
+import React from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Text, TouchableOpacity, View } from '../../../components/Themed';
+import { Text, TouchableOpacity, View } from '../../Themed';
 
 export default function FirstBox() {
   return (
