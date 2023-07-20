@@ -42,13 +42,18 @@ export function ReviewNode({post: {strain, name, rating, size, date, time}}) {
     return (
         <View style={styles.container}>
         <View style={styles.titleContainer}>
-            <View>
+            <View style={{ flexDirection: 'row', alignContent: 'flex-start' }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
                     <View id="pic" style={styles.smallPfp}/>
-                    <SpaceGrotesk style={{ height: '100%' }}>{name} reviewed </SpaceGrotesk>
-                    <SpaceGroteskBold style={{ height: '100%' }}>{strain}</SpaceGroteskBold>
                 </View>
-                <SpaceGrotesk>I {feelings[Math.floor(randomFeeling)]} it!</SpaceGrotesk>
+                <View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'center', }}>
+                        <SpaceGrotesk style={{ height: '100%' }}>{name} reviewed </SpaceGrotesk>
+                        <SpaceGroteskBold style={{ height: '100%' }}>{strain}</SpaceGroteskBold>
+                    </View>
+                    <SpaceGrotesk>I {feelings[Math.floor(randomFeeling)]} it!</SpaceGrotesk>
+                </View>
+                
             </View>
             <View id="rating" style={styles.ratingContainer}>
                 <SpaceGrotesk>{rating} Stars</SpaceGrotesk>
