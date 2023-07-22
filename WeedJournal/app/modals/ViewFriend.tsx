@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import TextBox from '../../components/TextBox/TextBox';
 import Colors from '../../constants/Colors';
 import ProfileHeader from '../../components/Profile/ProfileHeader/ProfileHeader';
+import React from 'react';
 
 interface UserProps {
     fName: string,
@@ -96,7 +97,6 @@ const styles = StyleSheet.create({
     settingsLink: {
       position: 'absolute',
       right: 16,
-      top: 20
     },
     scrollView: {
       flexDirection: 'row',

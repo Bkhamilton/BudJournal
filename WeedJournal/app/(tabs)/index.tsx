@@ -6,7 +6,7 @@ import EditScreenInfo from '../../components/EditScreenInfo';
 import Header from '../../components/Header/Header';
 import FirstBox from '../../components/Home/FirstBox/FirstBox';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import { Text, View, SafeAreaView, ScrollView } from '../../components/Themed';
+import { Text, View, SafeAreaView, ScrollView, TouchableOpacity } from '../../components/Themed';
 import Colors from '../../constants/Colors';
 
 export default function HomeScreen() {
@@ -20,7 +20,9 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Header title='Weed Journal' font='PsychoFun'>
-        <MaterialCommunityIcons name="book-plus" size={24} color={bwColors} />
+        <TouchableOpacity style={{backgroundColor: 'transparent'}}>
+          <MaterialCommunityIcons name="book-plus" size={24} color={bwColors} />
+        </TouchableOpacity>
       </Header>
       <ScrollView style={styles.scrollContainer}>
         <View style={{ paddingHorizontal: 20, }}>

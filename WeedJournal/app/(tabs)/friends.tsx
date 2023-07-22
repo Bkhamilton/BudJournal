@@ -1,6 +1,7 @@
 import { StyleSheet, StatusBar, Platform, Animated, useColorScheme, FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View, ScrollView, SafeAreaView, ColorView } from '../../components/Themed';
+import { Text, View, ScrollView, SafeAreaView, ColorView, TouchableOpacity } from '../../components/Themed';
 import Header from '../../components/Header/Header';
 import RecentEntry from '../../components/RecentEntry/RecentEntry';
 import { RateNode, ReviewNode } from '../../components/Feed/PostNode/PostNode';
@@ -9,7 +10,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function FriendsScreen() {
-  const strains = ["Wedding Cake", "Titty Sprinkles", "Gelato", "Runtz", "Birthday Cake", "4front Legends", "Green Crack", "Church", "8-inch Bagel"];
+  const strains = ["Wedding Cake", "Pirate Cake", "Inzane in the Membrane", "Gelato", "Runtz", "Birthday Cake", "4front Legends", "Green Crack", "Church", "8-inch Bagel"];
   const names = ["Jimbo","Paul","James","Terry","Sheila","Bjorn","Sally","Anita","Sam","Derek","Bob","Rob", "Ben", "Kenneth"];
   const sizes = ["1/8", "1/8", "1/8", "1/8", "1/4", "1/4", "1/4", "1/2", "1/2", "1"];
 
@@ -101,7 +102,9 @@ export default function FriendsScreen() {
       </ColorView>
       <Animated.View style={[styles.header, { opacity: opacity, backgroundColor: colorBackground, position: 'absolute', top: Platform.OS === 'ios' ? 47 : 6, zIndex: 1 }]}>
         <Text style={{ fontFamily: 'PsychoFun', fontSize: 22, height: 32, }}>Buddies</Text>
-        <MaterialCommunityIcons name="book-plus" size={24} color={bwColors} /> 
+        <TouchableOpacity style={{ backgroundColor: 'transparent' }}>
+          <MaterialCommunityIcons name="book-plus" size={24} color={bwColors} /> 
+        </TouchableOpacity>
       </Animated.View>
       <FlatList
         style={{ height: '93.8%', paddingHorizontal: 20 }}

@@ -5,6 +5,7 @@ import EditScreenInfo from '../../components/EditScreenInfo';
 import { Modal, SafeAreaView, Text, TouchableOpacity, View } from '../../components/Themed';
 import { FontAwesome } from '@expo/vector-icons';
 import Header from '../../components/Header/Header';
+import React from 'react';
 
 export default function ViewAllFriends({visible, toggle}: {visible: boolean, toggle: ()=>void}) {
   
