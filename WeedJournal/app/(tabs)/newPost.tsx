@@ -20,15 +20,14 @@ export default function NewPostScreen() {
   const categories = ["Flower", "Pre-Roll", "Cart", "Dab", "Edible", "Drink", "Other"];
   const quantities = ["1/8", "1/4", "1/2", "1", "1.5", "2", "2+"];
 
-  const [breed, setBreed] = useState(0);
-  const [category, setCategory] = useState("Flower");
-  const [quantity, setQuantity] = useState("1/8");
-
   const [pageHeader, setHeader] = useState("New Post");
 
   const [name, setName] = useState("");
+  const [breed, setBreed] = useState(0);
+  const [category, setCategory] = useState("Flower");
   const [thc, setTHC] = useState("");
   const [dispensary, setDispo] = useState("");
+  const [quantity, setQuantity] = useState("1/8");
   const [review, setReview] = useState("");
 
   const [typeModal, setTypeModal] = useState(false);
@@ -42,17 +41,17 @@ export default function NewPostScreen() {
     setTypeModal((prevState) => !prevState);
   }
 
-  const chooseType = (props) => {
+  const chooseType = (props: React.SetStateAction<string>) => {
     setCategory(props);
     toggleTypeModal();
   }
 
-  const chooseQuantity = (props) => {
+  const chooseQuantity = (props: React.SetStateAction<string>) => {
     setQuantity(props);
     toggleQuantityModal();
   }
   
-  const handleBreed = (newBreed) => {
+  const handleBreed = (newBreed: React.SetStateAction<number>) => {
     if (breed == newBreed) {
       setBreed(0);
     } else {
@@ -64,9 +63,9 @@ export default function NewPostScreen() {
   const StrainType = () => {
     return (
       <ColorView style={{ alignItems: 'flex-start', width: 100, }}>
-        <SpaceGroteskBold style={[styles.headerTitle]}>Type</SpaceGroteskBold>
+        <SpaceGroteskBold style={styles.headerTitle}>Type</SpaceGroteskBold>
         <TouchableOpacity style={[styles.typeButton, { backgroundColor: inactiveBtnColor }]} onPress={toggleTypeModal}>
-            <SpaceGrotesk style={{ fontSize: 20, }}>{category}</SpaceGrotesk>
+            <SpaceGrotesk style={styles.buttonTitle}>{category}</SpaceGrotesk>
         </TouchableOpacity>
       </ColorView>
     );
@@ -76,16 +75,16 @@ export default function NewPostScreen() {
   const StrainBreed = () => {
     return (
       <ColorView style={{ alignItems: 'center', }}>
-        <SpaceGroteskBold style={[styles.headerTitle]}>Breed</SpaceGroteskBold>
+        <SpaceGroteskBold style={styles.headerTitle}>Breed</SpaceGroteskBold>
         <ColorView style={{ flexDirection: 'row' }}>
           <TouchableOpacity style={[styles.typeButton, { backgroundColor: breed==1 ? activeBtnColor : inactiveBtnColor }]} onPress={() => handleBreed(1)}>
-            <SpaceGrotesk style={{ fontSize: 20 }}>Indica</SpaceGrotesk>
+            <SpaceGrotesk style={styles.buttonTitle}>Indica</SpaceGrotesk>
           </TouchableOpacity>
           <TouchableOpacity style={[styles.typeButton, { backgroundColor: breed==2 ? activeBtnColor : inactiveBtnColor }]} onPress={() => handleBreed(2)}>
-            <SpaceGrotesk style={{ fontSize: 20 }}>Sativa</SpaceGrotesk>
+            <SpaceGrotesk style={styles.buttonTitle}>Sativa</SpaceGrotesk>
           </TouchableOpacity>
           <TouchableOpacity style={[styles.typeButton, { backgroundColor: breed==3 ? activeBtnColor : inactiveBtnColor }]} onPress={() => handleBreed(3)}>
-            <SpaceGrotesk style={{ fontSize: 20 }}>Hybrid</SpaceGrotesk>
+            <SpaceGrotesk style={styles.buttonTitle}>Hybrid</SpaceGrotesk>
           </TouchableOpacity>
         </ColorView>
       </ColorView>
@@ -94,14 +93,34 @@ export default function NewPostScreen() {
 
   const Quantity = () => {
     return (
-      <ColorView style={{ alignItems: 'flex-start', width: 100, paddingVertical: 8, }}>
-        <SpaceGroteskBold style={[styles.headerTitle]}>Quantity</SpaceGroteskBold>
+      <ColorView style={{ alignItems: 'flex-start', width: 100 }}>
+        <SpaceGroteskBold style={styles.headerTitle}>Quantity</SpaceGroteskBold>
         <TouchableOpacity style={[styles.typeButton, { backgroundColor: inactiveBtnColor }]} onPress={toggleQuantityModal}>
-            <SpaceGrotesk style={{ fontSize: 20, }}>{quantity} oz</SpaceGrotesk>
+            <SpaceGrotesk style={styles.buttonTitle}>{quantity} oz</SpaceGrotesk>
         </TouchableOpacity>
       </ColorView>
     );
     
+  }
+
+  const Rating = () => {
+
+    const [width, setWidth] = useState(0);
+
+    const handlePress = () => {
+      setWidth(Math.random() * 230);
+    }
+
+    return (
+      <ColorView>
+        <SpaceGroteskBold style={[styles.headerTitle, { textAlign: 'center', }]}>Rating</SpaceGroteskBold>
+        <TouchableOpacity style={{ width: 230, borderWidth: 1, height: 30, }} onPress={handlePress}>
+            <ColorView style={{ width: width, height: '100%', backgroundColor: 'green' }}>
+
+            </ColorView>
+        </TouchableOpacity>
+      </ColorView>      
+    );
   }
 
   const handleHeader = () => {
@@ -130,11 +149,11 @@ export default function NewPostScreen() {
             onEndEditing={handleHeader}
           />
         </View>
-        <PickType visible={typeModal} toggle={chooseType} categories={categories}/>
-        <PickQuantity visible={quantityModal} toggle={chooseQuantity} options={quantities}/>
-        <ColorView style={[styles.spreadApart, { paddingVertical: 4, marginTop: 8 }]}>
+        <PickType visible={typeModal} toggle={chooseType} categories={categories} close={toggleTypeModal}/>
+        <PickQuantity visible={quantityModal} toggle={chooseQuantity} options={quantities} close={toggleQuantityModal}/>
+        <ColorView style={[styles.spreadApart, { paddingVertical: 8, marginTop: 8 }]}>
           <StrainType/>
-          <ColorView style={{ width: 2, height: '100%', backgroundColor: '#4dbf4d', opacity: 0.3, borderRadius: 8, }}/>
+          <ColorView style={{ width: 2, height: '100%', backgroundColor: inactiveBtnColor, opacity: 0.3, borderRadius: 8, }}/>
           <StrainBreed/>
         </ColorView>
         <ColorView style={[styles.spreadApart, { alignItems: 'center' }]}>
@@ -159,10 +178,11 @@ export default function NewPostScreen() {
             />
           </View>
         </ColorView>
-        <Quantity/>
-        <View style={styles.content}>
-          <Text style={styles.title}>Rating</Text>
-        </View>
+        <ColorView style={[styles.spreadApart, { paddingVertical: 8, marginTop: 8, }]}>
+          <Quantity/>
+          <ColorView style={{ width: 2, height: '100%', backgroundColor: inactiveBtnColor, opacity: 0.3, borderRadius: 8, }}/>
+          <Rating/>
+        </ColorView>
         <View style={[styles.content, { height: 160 }]}>
           <TextInput style={styles.title}
             value={review}
@@ -191,6 +211,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     fontFamily: 'SpaceGrotesk_Bold',
+  },
+  buttonTitle: {
+    fontSize: 20,
   },
   headerTitle: {
     fontSize: 16,

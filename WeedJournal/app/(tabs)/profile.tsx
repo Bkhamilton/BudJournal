@@ -118,7 +118,8 @@ export default function ProfileScreen() {
 
   let fontSize;
 
-  if(userProperties.username.length >= 0 && userProperties.username.length <= 6) {
+  //Sets Size of Username in Header based off Username Length
+  if (userProperties.username.length >= 0 && userProperties.username.length <= 6) {
     fontSize = 26;
   } else if(userProperties.username.length >= 7 && userProperties.username.length <= 8) {
     fontSize = 24;  

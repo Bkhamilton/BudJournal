@@ -5,6 +5,9 @@ import { StyleSheet, useColorScheme } from 'react-native';
 import EditScreenInfo from '../../components/EditScreenInfo';
 import Header from '../../components/Header/Header';
 import FirstBox from '../../components/Home/FirstBox/FirstBox';
+import RecentJournal from '../../components/Home/RecentJournal/RecentJournal';
+import RecommendStrains from '../../components/Home/RecommendStrains/RecommendStrains';
+import SmokeTracker from '../../components/Home/SmokeTracker/SmokeTracker';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { Text, View, SafeAreaView, ScrollView, TouchableOpacity } from '../../components/Themed';
 import Colors from '../../constants/Colors';
@@ -28,28 +31,33 @@ export default function HomeScreen() {
         <View style={{ paddingHorizontal: 20, }}>
           <SearchBar/>
         </View>
+        <View style={{ paddingBottom: 4, }}>
+          <SmokeTracker/>
+        </View>
+        <View style={styles.content}>
+          <RecommendStrains/>
+        </View>
+        <View>
+          <RecentJournal/>
+        </View>
         <View style={styles.content}>
           <FirstBox/>
         </View>
         <View style={styles.content}>
           <Text style={styles.title}>Favorites</Text>
           <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-          <EditScreenInfo path="app/(tabs)/index.tsx" />
         </View>
         <View style={styles.content}>
           <Text style={styles.title}>Friends Favorites</Text>
           <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-          <EditScreenInfo path="app/(tabs)/index.tsx" />
         </View>
         <View style={styles.content}>
           <Text style={styles.title}>Smoke Tracker</Text>
           <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-          <EditScreenInfo path="app/(tabs)/index.tsx" />
         </View>
         <View style={styles.content}>
           <Text style={styles.title}>Recent Journal Entries</Text>
           <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-          <EditScreenInfo path="app/(tabs)/index.tsx" />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -79,9 +87,8 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: 'center',
-    borderWidth: 0,
-    borderRadius: 16,
     marginVertical: 4,
     paddingVertical: 10,
+    paddingHorizontal: 8,
   }
 });

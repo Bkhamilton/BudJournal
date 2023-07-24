@@ -9,7 +9,7 @@ import { SpaceGrotesk } from '../../components/StyledText';
 
 
 
-export default function PickQuantity({visible, toggle, options}: {visible: boolean, toggle: (props: any) => void}) {
+export default function PickQuantity({visible, toggle, options, close}: {visible: boolean, toggle: (props: any) => void}) {
   
   const colorScheme = useColorScheme();
 
@@ -21,7 +21,7 @@ export default function PickQuantity({visible, toggle, options}: {visible: boole
 
     return (
       <Modal visible={visible} animationType='fade' presentationStyle='overFullScreen' transparent={true} >
-        <SafeAreaView style={styles.modalContainer}>
+        <TouchableOpacity style={styles.modalContainer} onPress={close}>
             <View style={[{backgroundColor: 'transparent'}, styles.modalPopup]}>
                 <FlatList
                     style={{ }}
@@ -34,7 +34,7 @@ export default function PickQuantity({visible, toggle, options}: {visible: boole
                     )}
                 />                                                                    
             </View>
-        </SafeAreaView>
+        </TouchableOpacity>
       </Modal>
     );
 }
