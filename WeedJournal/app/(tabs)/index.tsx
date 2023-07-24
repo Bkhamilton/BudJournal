@@ -1,8 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, useColorScheme } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
 import Header from '../../components/Header/Header';
 import FirstBox from '../../components/Home/FirstBox/FirstBox';
 import RecentJournal from '../../components/Home/RecentJournal/RecentJournal';
@@ -11,6 +10,7 @@ import SmokeTracker from '../../components/Home/SmokeTracker/SmokeTracker';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { Text, View, SafeAreaView, ScrollView, TouchableOpacity } from '../../components/Themed';
 import Colors from '../../constants/Colors';
+import ViewJournalEntry from '../modals/ViewJournalEntry';
 
 export default function HomeScreen() {
   const colorScheme = useColorScheme();
@@ -20,6 +20,18 @@ export default function HomeScreen() {
 
   const bwColors = colorScheme == 'light' ? "black" : "white";
 
+  const [journalModal, setJournalModal] = useState(false);
+  const [journalEntry, setJournalEntry] = useState({});
+
+  const openJournal = (props) => {
+    setJournalEntry(props);
+    toggleJournalModal();
+  }
+
+  const toggleJournalModal = () => {
+    setJournalModal((prevState) => !prevState);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Header title='Weed Journal' font='PsychoFun'>
@@ -27,18 +39,19 @@ export default function HomeScreen() {
           <MaterialCommunityIcons name="book-plus" size={24} color={bwColors} />
         </TouchableOpacity>
       </Header>
+      <ViewJournalEntry visible={journalModal} entry={journalEntry} close={toggleJournalModal}/>
       <ScrollView style={styles.scrollContainer}>
         <View style={{ paddingHorizontal: 20, }}>
           <SearchBar/>
         </View>
-        <View style={{ paddingBottom: 4, }}>
-          <SmokeTracker/>
-        </View>
         <View style={styles.content}>
           <RecommendStrains/>
         </View>
+        <View style={{ paddingBottom: 4, }}>
+          <SmokeTracker/>
+        </View>
         <View>
-          <RecentJournal/>
+          <RecentJournal open={openJournal}/>
         </View>
         <View style={styles.content}>
           <FirstBox/>
@@ -49,14 +62,6 @@ export default function HomeScreen() {
         </View>
         <View style={styles.content}>
           <Text style={styles.title}>Friends Favorites</Text>
-          <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.title}>Smoke Tracker</Text>
-          <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-        </View>
-        <View style={styles.content}>
-          <Text style={styles.title}>Recent Journal Entries</Text>
           <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         </View>
       </ScrollView>

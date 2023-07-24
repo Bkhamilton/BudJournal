@@ -1,6 +1,6 @@
 import { Feather } from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { FlatList, StyleSheet, useColorScheme } from 'react-native';
 import { SpaceGrotesk, SpaceGroteskBold } from '../../StyledText';
 
 import { ColorView, ScrollView, Text, TouchableOpacity, View } from '../../Themed';
@@ -11,6 +11,28 @@ export default function SmokeTracker() {
 
     const borderColor = colorScheme == 'light' ? 'black' : 'white';
 
+    const days = [
+      { day: "7/16", count: 2 },
+      { day: "7/17", count: 3 },
+      { day: "7/18", count: 4 },
+      { day: "7/19", count: 3 },
+      { day: "7/20", count: 3 },
+      { day: "7/21", count: 5 },
+      { day: "7/22", count: 3 },
+      { day: "7/23", count: 3 },
+      { day: "7/24", count: 2 },
+      { day: "7/25", count: 3 },
+      { day: "7/26", count: 1 },
+      { day: "7/27", count: 3 },
+      { day: "7/28", count: 3 },
+      { day: "7/29", count: 4 },
+      { day: "7/30", count: 3 },
+      { day: "7/31", count: 6 },
+      { day: "8/1", count: 3 },
+    ]
+
+    const startIndex = days.findIndex((item) => item.day === "7/24");
+
     const DayBox = ({day, count} : {day: string, count: number}) => {
         return (
             <TouchableOpacity style={[styles.dayBox, { borderColor: borderColor }]}>
@@ -18,6 +40,7 @@ export default function SmokeTracker() {
                 <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
                     <SpaceGroteskBold>{count}</SpaceGroteskBold>
                 </View>
+                <SpaceGrotesk>Target: 2</SpaceGrotesk>
             </TouchableOpacity>
         );
     }
@@ -25,22 +48,18 @@ export default function SmokeTracker() {
     return (
         <View style={styles.container}>
             <SpaceGroteskBold style={styles.title}>Smoke Tracker</SpaceGroteskBold>
-            <ScrollView
-                horizontal
-            >
-                <DayBox day="7/20" count={3}/>
-                <DayBox day="7/21" count={2}/>
-                <DayBox day="7/22" count={4}/>
-                <DayBox day="7/23" count={3}/>
-                <DayBox day="7/24" count={2}/>
-                <DayBox day="7/25" count={5}/>
-                <DayBox day="7/26" count={5}/>
-                <DayBox day="7/27" count={2}/>
-                <DayBox day="7/28" count={3}/>
-                <DayBox day="7/29" count={2}/>
-                <DayBox day="7/30" count={3}/>
-                <DayBox day="7/31" count={2}/>                                                                                    
-            </ScrollView>
+            <FlatList
+              data={days}
+              horizontal
+              keyExtractor={(item, index) => index.toString()}
+              renderItem={({item}) => (
+                <DayBox 
+                  day={item.day}
+                  count={item.count}
+                />
+              )}
+              initialScrollIndex={startIndex}
+            />
         </View>
     );
 }
