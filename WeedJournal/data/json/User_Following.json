@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "64c042b87be1350adfcaeffd",
+    "user": "Monkmanka",
+    "following": [
+      "Vmaxman"
+    ]
+  },
+  {
+    "_id": "64c043437be1350adfcaefff",
+    "user": "Vmaxman",
+    "following": [
+      "Monkmanka"
+    ]
+  }
+]

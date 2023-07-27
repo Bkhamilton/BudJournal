@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "64c0331cef7e3ffc87e2e500",
+    "username": "Monkmanka",
+    "fName": "Ben",
+    "lName": "Hamilton",
+    "email": "bkhamilton310@gmail.com",
+    "bio": "Who are you talking to right now? Who is it you think you see? Do you know how much I make in a year?",
+    "joinDate": "2023-07-25 20:46:00",
+    "pfpLink": "https://unsplash.com/photos/y421kXlUOQk"
+  },
+  {
+    "_id": "64c0351eef7e3ffc87e2e503",
+    "username": "Vmaxman",
+    "fName": "Kenneth",
+    "lName": "Sullivan",
+    "email": "kmanjr18@gmail.com",
+    "bio": "I mean, even if I told you, you wouldn't believe it. Do you know what would happen if I suddenly decided to stop going in to work?",
+    "joinDate": "2023-07-25 20:46:00",
+    "pfpLink": "https://unsplash.com/photos/qQWV91TTBrE"
+  },
+  {
+    "_id": "64c0389eef7e3ffc87e2e505",
+    "username": "FleefleLief",
+    "fName": "Lief",
+    "lName": "Erickson",
+    "email": "liefErickson@gmail.com",
+    "bio": "A business, big enough that it could be listed on the NASDAQ goes belly up, disappears, it CEASE TO EXIST without me.",
+    "joinDate": "2023-07-25 21:44:00",
+    "pfpLink": "https://unsplash.com/photos/sI2Dz2dacGI"
+  }
+]

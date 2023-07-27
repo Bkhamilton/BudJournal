@@ -1,0 +1,690 @@
+[
+  {
+    "op": "c",
+    "ns": "WeedJournal.$cmd",
+    "ui": "ul2WDH3eQiWm/mPA1PSRSw==",
+    "o": {
+      "create": "Users",
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    "ts": "Timestamp(1690317549, 6)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:39:09.464000"
+  },
+  {
+    "op": "c",
+    "ns": "WeedJournal.$cmd",
+    "ui": "ul2WDH3eQiWm/mPA1PSRSw==",
+    "o": {
+      "drop": "Users"
+    },
+    "o2": {
+      "numRecords": 0
+    },
+    "ts": "Timestamp(1690317561, 1)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:39:21.015000"
+  },
+  {
+    "op": "c",
+    "ns": "WeedJournal.$cmd",
+    "o": {
+      "dropDatabase": 1
+    },
+    "ts": "Timestamp(1690317561, 4)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:39:21.087000"
+  },
+  {
+    "op": "c",
+    "ns": "Info.$cmd",
+    "ui": "8tnwxj6wTHSIVoymkJWBkg==",
+    "o": {
+      "create": "Flower",
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    "ts": "Timestamp(1690317579, 21)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:39:39.422000"
+  },
+  {
+    "op": "c",
+    "ns": "User.$cmd",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "create": "Users",
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    "ts": "Timestamp(1690317590, 3)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:39:50.364000"
+  },
+  {
+    "op": "i",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c0331cef7e3ffc87e2e500",
+      "username": "Monkmanka",
+      "fName": "Ben",
+      "lName": "Hamilton",
+      "email": "bkhamilton310@gmail.com",
+      "followers": 500,
+      "following": 14
+    },
+    "o2": {
+      "_id": "64c0331cef7e3ffc87e2e500"
+    },
+    "ts": "Timestamp(1690317886, 31)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:44:46.972000"
+  },
+  {
+    "op": "i",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c03440ef7e3ffc87e2e501",
+      "username": "Vmaxman",
+      "fName": "Kenneth",
+      "lName": "Sullivan",
+      "email": "kmanjr18@gmail.com",
+      "followers": 499,
+      "following": 28
+    },
+    "o2": {
+      "_id": "64c03440ef7e3ffc87e2e501"
+    },
+    "ts": "Timestamp(1690317921, 22)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:45:21.570000"
+  },
+  {
+    "op": "i",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c03463ef7e3ffc87e2e502",
+      "username": "Vmaxman",
+      "fName": "Kenneth",
+      "lName": "Sullivan",
+      "email": "kmanjr18@gmail.com"
+    },
+    "o2": {
+      "_id": "64c03463ef7e3ffc87e2e502"
+    },
+    "ts": "Timestamp(1690317953, 10)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:45:53.559000"
+  },
+  {
+    "op": "d",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c03440ef7e3ffc87e2e501"
+    },
+    "ts": "Timestamp(1690317959, 5)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:45:59.333000"
+  },
+  {
+    "op": "u",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "d": {
+          "followers": false,
+          "following": false
+        }
+      }
+    },
+    "o2": {
+      "_id": "64c0331cef7e3ffc87e2e500"
+    },
+    "ts": "Timestamp(1690317968, 12)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:46:08.383000"
+  },
+  {
+    "op": "d",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c03463ef7e3ffc87e2e502"
+    },
+    "ts": "Timestamp(1690317985, 17)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:46:25.470000"
+  },
+  {
+    "op": "u",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "i": {
+          "bio": "Who are you talking to right now? Who is it you think you see? Do you know how much I make in a year?",
+          "joinDate": "2023-07-25 20:46:00"
+        }
+      }
+    },
+    "o2": {
+      "_id": "64c0331cef7e3ffc87e2e500"
+    },
+    "ts": "Timestamp(1690318105, 188)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:48:25.985000"
+  },
+  {
+    "op": "i",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c0351eef7e3ffc87e2e503",
+      "username": "Vmaxman",
+      "fName": "Kenneth",
+      "lName": "Sullivan",
+      "email": "kmanjr18@gmail.com",
+      "bio": "I mean, even if I told you, you wouldn't believe it. Do you know what would happen if I suddenly decided to stop going in to work?",
+      "joinDate": "2023-07-25 20:46:00"
+    },
+    "o2": {
+      "_id": "64c0351eef7e3ffc87e2e503"
+    },
+    "ts": "Timestamp(1690318246, 9)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:50:46.362000"
+  },
+  {
+    "op": "c",
+    "ns": "User.$cmd",
+    "ui": "NGMc4j13R5iib1iAPwYzfg==",
+    "o": {
+      "create": "User Posts",
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    "ts": "Timestamp(1690318501, 1)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 20:55:01.022000"
+  },
+  {
+    "op": "i",
+    "ns": "Info.Flower",
+    "ui": "8tnwxj6wTHSIVoymkJWBkg==",
+    "o": {
+      "_id": "64c0375a064a167f6e1a1773",
+      "name": "(Tower Three) Dosido",
+      "type": "Indica/Hybrid",
+      "manufacturer": "Tower Three",
+      "THC": "28.8",
+      "CBD": "0.00",
+      "quantity": [
+        "1/8oz",
+        "1/4oz",
+        "1/2oz",
+        "1oz"
+      ],
+      "feelings": [
+        "sleepy",
+        "relaxed",
+        "hungry"
+      ],
+      "benefits": [
+        "insomnia",
+        "inflammation",
+        "appetite"
+      ],
+      "flavors": [
+        "flowery",
+        "pungent",
+        "pepper"
+      ]
+    },
+    "o2": {
+      "_id": "64c0375a064a167f6e1a1773"
+    },
+    "ts": "Timestamp(1690319297, 16)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:08:17.429000"
+  },
+  {
+    "op": "i",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c0389eef7e3ffc87e2e505",
+      "username": "FleefleLief",
+      "fName": "Lief",
+      "lName": "Erickson",
+      "email": "liefErickson@gmail.com",
+      "bio": "A business, big enough that it could be listed on the NASDAQ goes belly up, disappears, it CEASE TO EXIST without me.",
+      "joinDate": "2023-07-25 20:46:00"
+    },
+    "o2": {
+      "_id": "64c0389eef7e3ffc87e2e505"
+    },
+    "ts": "Timestamp(1690321444, 5)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:44:04.034000"
+  },
+  {
+    "op": "u",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "joinDate": "2023-07-25 21:44:00"
+        }
+      }
+    },
+    "o2": {
+      "_id": "64c0389eef7e3ffc87e2e505"
+    },
+    "ts": "Timestamp(1690321484, 1)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:44:44.152000"
+  },
+  {
+    "op": "c",
+    "ns": "User.$cmd",
+    "ui": "NGMc4j13R5iib1iAPwYzfg==",
+    "o": {
+      "drop": "User Posts"
+    },
+    "o2": {
+      "numRecords": 0
+    },
+    "ts": "Timestamp(1690321552, 24)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:45:52.992000"
+  },
+  {
+    "op": "c",
+    "ns": "User.$cmd",
+    "ui": "84oB+NeTRmG1BZNsbJIDXQ==",
+    "o": {
+      "create": "Posts",
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    "ts": "Timestamp(1690321559, 7)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:45:59.303000"
+  },
+  {
+    "op": "c",
+    "ns": "User.$cmd",
+    "ui": "2zXDiFLEQO6na2tHca/vMA==",
+    "o": {
+      "create": "Following",
+      "idIndex": {
+        "v": 2,
+        "key": {
+          "_id": 1
+        },
+        "name": "_id_"
+      }
+    },
+    "ts": "Timestamp(1690321575, 4)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:46:15.164000"
+  },
+  {
+    "op": "i",
+    "ns": "User.Following",
+    "ui": "2zXDiFLEQO6na2tHca/vMA==",
+    "o": {
+      "_id": "64c042b87be1350adfcaeffd",
+      "user": "Monkmanka",
+      "following": "Vmaxman"
+    },
+    "o2": {
+      "_id": "64c042b87be1350adfcaeffd"
+    },
+    "ts": "Timestamp(1690321614, 9)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:46:54.179000"
+  },
+  {
+    "op": "i",
+    "ns": "User.Following",
+    "ui": "2zXDiFLEQO6na2tHca/vMA==",
+    "o": {
+      "_id": "64c042cd7be1350adfcaeffe",
+      "user": "Vmaxman",
+      "following": "Monkmanka"
+    },
+    "o2": {
+      "_id": "64c042cd7be1350adfcaeffe"
+    },
+    "ts": "Timestamp(1690321629, 3)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:47:09.120000"
+  },
+  {
+    "op": "u",
+    "ns": "User.Following",
+    "ui": "2zXDiFLEQO6na2tHca/vMA==",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "following": [
+            "Vmaxman"
+          ]
+        }
+      }
+    },
+    "o2": {
+      "_id": "64c042b87be1350adfcaeffd"
+    },
+    "ts": "Timestamp(1690321727, 1)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:48:47.062000"
+  },
+  {
+    "op": "d",
+    "ns": "User.Following",
+    "ui": "2zXDiFLEQO6na2tHca/vMA==",
+    "o": {
+      "_id": "64c042cd7be1350adfcaeffe"
+    },
+    "ts": "Timestamp(1690321732, 3)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:48:52.237000"
+  },
+  {
+    "op": "i",
+    "ns": "User.Following",
+    "ui": "2zXDiFLEQO6na2tHca/vMA==",
+    "o": {
+      "_id": "64c043437be1350adfcaefff",
+      "user": "Vmaxman",
+      "following": [
+        "Monkmanka"
+      ]
+    },
+    "o2": {
+      "_id": "64c043437be1350adfcaefff"
+    },
+    "ts": "Timestamp(1690321744, 23)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-25 21:49:04.816000"
+  },
+  {
+    "op": "u",
+    "ns": "Info.Flower",
+    "ui": "8tnwxj6wTHSIVoymkJWBkg==",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "d": {
+          "quantity": false
+        }
+      }
+    },
+    "o2": {
+      "_id": "64c0375a064a167f6e1a1773"
+    },
+    "ts": "Timestamp(1690337799, 16)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-26 02:16:39.481000"
+  },
+  {
+    "op": "u",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "i": {
+          "pfpLink": "https://unsplash.com/photos/y421kXlUOQk"
+        }
+      }
+    },
+    "o2": {
+      "_id": "64c0331cef7e3ffc87e2e500"
+    },
+    "ts": "Timestamp(1690338640, 70)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-26 02:30:40.644000"
+  },
+  {
+    "op": "u",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "i": {
+          "pfpLink": "https://unsplash.com/photos/qQWV91TTBrE"
+        }
+      }
+    },
+    "o2": {
+      "_id": "64c0351eef7e3ffc87e2e503"
+    },
+    "ts": "Timestamp(1690338659, 6)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-26 02:30:59.220000"
+  },
+  {
+    "op": "u",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "i": {
+          "pfpLink": "https://unsplash.com/photos/sI2Dz2dacGI"
+        }
+      }
+    },
+    "o2": {
+      "_id": "64c0389eef7e3ffc87e2e505"
+    },
+    "ts": "Timestamp(1690338702, 22)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-26 02:31:42.923000"
+  },
+  {
+    "lsid": {
+      "id": "FlqxzMknR0yFulE6h9apyg==",
+      "uid": "b'u\\xda\\xa8\\xb7\\xaf/.\\x90T>s\\xae\\xa8X\\xf6q\\xd0\\xa5\\xbf\\xf7o\\xfe\\xf1}eT\\xb0\\x92v\\x07\\x12\\xc1'"
+    },
+    "txnNumber": 1,
+    "op": "i",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c1347a1cd99c8df1b0ae38",
+      "username": "Vmaxman"
+    },
+    "o2": {
+      "_id": "64c1347a1cd99c8df1b0ae38"
+    },
+    "stmtId": 0,
+    "ts": "Timestamp(1690383483, 1)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-26 14:58:03.038000",
+    "prevOpTime": {
+      "ts": "Timestamp(0, 0)",
+      "t": -1
+    }
+  },
+  {
+    "lsid": {
+      "id": "aVmqHermTn6Znvx1HsPVGA==",
+      "uid": "b'u\\xda\\xa8\\xb7\\xaf/.\\x90T>s\\xae\\xa8X\\xf6q\\xd0\\xa5\\xbf\\xf7o\\xfe\\xf1}eT\\xb0\\x92v\\x07\\x12\\xc1'"
+    },
+    "txnNumber": 1,
+    "op": "i",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c134903c6f0460dcd24b45",
+      "username": "Vmaxman"
+    },
+    "o2": {
+      "_id": "64c134903c6f0460dcd24b45"
+    },
+    "stmtId": 0,
+    "ts": "Timestamp(1690383505, 1)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-26 14:58:25.029000",
+    "prevOpTime": {
+      "ts": "Timestamp(0, 0)",
+      "t": -1
+    }
+  },
+  {
+    "op": "d",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c1347a1cd99c8df1b0ae38"
+    },
+    "ts": "Timestamp(1690383540, 36)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-26 14:59:00.569000"
+  },
+  {
+    "op": "d",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "_id": "64c134903c6f0460dcd24b45"
+    },
+    "ts": "Timestamp(1690383544, 11)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-26 14:59:04.274000"
+  },
+  {
+    "lsid": {
+      "id": "3WkNDmj4SkyGyu6dgtEPnA==",
+      "uid": "b'u\\xda\\xa8\\xb7\\xaf/.\\x90T>s\\xae\\xa8X\\xf6q\\xd0\\xa5\\xbf\\xf7o\\xfe\\xf1}eT\\xb0\\x92v\\x07\\x12\\xc1'"
+    },
+    "txnNumber": 1,
+    "op": "u",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "fName": "Kendogggy doggy doggggg"
+        }
+      }
+    },
+    "o2": {
+      "_id": "64c0351eef7e3ffc87e2e503"
+    },
+    "stmtId": 0,
+    "ts": "Timestamp(1690484784, 10)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-27 19:06:24.171000",
+    "prevOpTime": {
+      "ts": "Timestamp(0, 0)",
+      "t": -1
+    }
+  },
+  {
+    "lsid": {
+      "id": "7OKuC4y7SzilCRECYTaQfA==",
+      "uid": "b'u\\xda\\xa8\\xb7\\xaf/.\\x90T>s\\xae\\xa8X\\xf6q\\xd0\\xa5\\xbf\\xf7o\\xfe\\xf1}eT\\xb0\\x92v\\x07\\x12\\xc1'"
+    },
+    "txnNumber": 1,
+    "op": "u",
+    "ns": "User.Users",
+    "ui": "hnYxDLTqQvq2v7esNMqHrA==",
+    "o": {
+      "$v": 2,
+      "diff": {
+        "u": {
+          "fName": "Kenneth"
+        }
+      }
+    },
+    "o2": {
+      "_id": "64c0351eef7e3ffc87e2e503"
+    },
+    "stmtId": 0,
+    "ts": "Timestamp(1690484838, 8)",
+    "t": 174,
+    "v": 2,
+    "wall": "2023-07-27 19:07:18.130000",
+    "prevOpTime": {
+      "ts": "Timestamp(0, 0)",
+      "t": -1
+    }
+  }
+]
