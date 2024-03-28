@@ -2,6 +2,8 @@
 
 BudJournal is a comprehensive mobile application designed to help cannabis enthusiasts track, discover, and share their experiences with various strains and products. With its user-friendly interface and powerful features, BudJournal empowers you to document your cannabis journey, gain insights, and connect with a vibrant community.
 
+Created by Ben Hamilton and Kenneth Sullivan
+
 ## Features
 
 - **Personal Strain Journal**: Easily create journal entries for each cannabis strain or product you try. Record details such as effects, potency, aroma, flavor, and your overall experience.
