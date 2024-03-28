@@ -1,4 +1,4 @@
-# Weed Journal
+# Bud Journal
 A mobile app created by Ben Hamilton and Kenneth Sullivan
 
 ## Home
