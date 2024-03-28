@@ -1,32 +1,49 @@
-# Bud Journal
-A mobile app created by Ben Hamilton and Kenneth Sullivan
+# BudJournal: Your Personal Cannabis Journal and Community
 
-## Home
+BudJournal is a comprehensive mobile application designed to help cannabis enthusiasts track, discover, and share their experiences with various strains and products. With its user-friendly interface and powerful features, BudJournal empowers you to document your cannabis journey, gain insights, and connect with a vibrant community.
 
-The Home tab shows a feed of posts from the user and their friends. Users can scroll through and see ratings and thoughts on different strains that have been tried. There is a button to create a new post at the bottom.
+## Features
 
-***
+- **Personal Strain Journal**: Easily create journal entries for each cannabis strain or product you try. Record details such as effects, potency, aroma, flavor, and your overall experience.
 
-## Friends
+- **Dispensary Finder**: Locate nearby dispensaries and browse their product offerings. Filter by strain type, potency, price range, and other criteria to find the perfect match.
 
-The Friends tab shows a list of the user's friends on the app. From here, the user can search for new friends to add.
+- **Strain and Product Ratings**: Rate and review strains and products you've tried, providing valuable feedback for the community.
 
-*** 
+- **Social Feed**: Connect with friends and follow their cannabis adventures. See their strain reviews, ratings, and journal entries in a social feed.
 
-## History
+- **Strain and Product Discovery**: Explore a vast database of strains and products, complete with detailed information, user ratings, and reviews from the community.
 
-The History tab shows a chronological log of all the strains the user has tried and their personal ratings for each strain. Users can scroll back and reference this when trying to remember if they liked a certain strain.
+- **Secure Data Storage**: Your personal strain journal and preferences are securely stored and managed using an embedded database, ensuring privacy and data integrity.
 
-***
+## Getting Started
 
-## Profile 
+1. Clone the repository:
+  [git clone] (https://github.com/Bkhamilton/BudJournal.git) 
 
-The Profile tab shows the user's profile information including their name, bio, profile picture, and other stats like total number of strains tried. Users can edit their profile from this tab.
+2. Install dependencies:
+  cd BudJournal
+  npm install    
+    
+3. Run the app:
+  npm start
 
-***
+Follow the instructions to launch the app on your preferred platform (iOS or Android).
 
-## New Post
+## Contributing
 
-Tapping the New Post button in the tab bar brings up a page to create a new post. Users can enter the strain name, upload a photo, enter a rating, and write a caption for their thoughts on the strain.
+We welcome contributions from the community! If you have any ideas, bug reports, or feature requests, please open an issue or submit a pull request. For major changes, it's recommended to discuss them first in an issue.
 
-***
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Acknowledgments
+
+- [React Native](https://reactnative.dev/) - The powerful framework used for building this cross-platform app.
+- [Your favorite cannabis API] - Providing strain and product information.
+- [Your favorite location API] - Enabling dispensary finder functionality.
+
+## Contact
+
+If you have any questions or feedback, feel free to reach out to us at [benkenhamilvan@gmail.com](mailto:benkenhamilvan@gmail.com).
