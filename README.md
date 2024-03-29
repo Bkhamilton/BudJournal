@@ -21,7 +21,7 @@ Created by Ben Hamilton and Kenneth Sullivan
 ## Getting Started
 
 1. Clone the repository:
-  [git clone] (https://github.com/Bkhamilton/BudJournal.git) 
+  [git clone] (https://github.com/_YOURUSERNAMEHERE_/BudJournal.git) 
 
 2. Install dependencies:
   cd BudJournal
